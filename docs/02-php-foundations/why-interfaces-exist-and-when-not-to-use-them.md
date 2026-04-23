@@ -4,7 +4,7 @@
 
 ## What it is
 
-An interface is a contract. It tells other code, “you can rely on these methods being available,” without forcing them to know or care which concrete class actually provides the behavior.
+An [interface](../glossary.md#interface) is a contract. It tells other code, “you can rely on these methods being available,” without forcing it to know or care which concrete class actually provides the behavior.
 
 ## Why it exists
 
@@ -34,6 +34,73 @@ Alternatives exist, and they are often better:
 
 Do not create interfaces only because “enterprise code should have them everywhere.” That creates noise without buying flexibility.
 
+## Tiny code example
+
+Without an interface:
+
+```php
+<?php
+
+final class FileLogger
+{
+    public function log(string $message): void
+    {
+        // Write message to file.
+    }
+}
+
+final class OrderService
+{
+    public function __construct(private FileLogger $logger)
+    {
+    }
+
+    public function place(): void
+    {
+        $this->logger->log('Order placed');
+    }
+}
+```
+
+This works, but `OrderService` is now tied directly to `FileLogger`.
+
+With an interface:
+
+```php
+<?php
+
+interface LoggerInterface
+{
+    public function log(string $message): void;
+}
+
+final class FileLogger implements LoggerInterface
+{
+    public function log(string $message): void
+    {
+        // Write message to file.
+    }
+}
+
+final class OrderService
+{
+    public function __construct(private LoggerInterface $logger)
+    {
+    }
+
+    public function place(): void
+    {
+        $this->logger->log('Order placed');
+    }
+}
+```
+
+Now `OrderService` depends on “something that can log,” not on one exact class. That matters when:
+
+- Magento injects the implementation
+- tests use a fake logger
+- another logger implementation is added later
+
 ## Magento-specific example
 
 Magento uses interfaces heavily for service contracts, repositories, search results, and many framework-level extension points. That makes sense because modules need stable boundaries.
@@ -51,4 +118,3 @@ Inside a small local-only helper, an interface may add ceremony without real val
 
 - [PHP OOP Foundations](php-oop-classes-interfaces-abstract-classes-inheritance-composition.md)
 - [Magento Request Lifecycle](../03-magento-core/magento-request-lifecycle.md)
-

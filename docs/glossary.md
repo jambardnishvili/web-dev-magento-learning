@@ -12,6 +12,10 @@ The startup process where an application loads configuration and gets itself rea
 
 Saved data kept around so the system does not have to recalculate or reload everything every time.
 
+## Body
+
+The main content of a request or response, such as form data, JSON, or HTML.
+
 ## Composition
 
 Building behavior by combining smaller collaborating objects instead of inheriting from one large parent.
@@ -31,6 +35,10 @@ The system that turns a domain name like `example.com` into the server address a
 ## Database
 
 A system for storing durable data that should still exist later, such as customers, products, orders, and settings.
+
+## Header
+
+Extra information sent with an HTTP request or response, such as content type, cookies, or cache instructions.
 
 ## Front controller
 
@@ -64,6 +72,10 @@ An in-memory data store commonly used for cache, sessions, and fast temporary st
 
 The path a request follows from browser input to application response.
 
+## Request
+
+The message the browser or another client sends to the server asking it to do something or return something.
+
 ## Response
 
 What the server sends back to the client, including status code, headers, and body.
@@ -76,13 +88,53 @@ A server in front of the application that receives incoming traffic and forwards
 
 The rule that tells the application which code should handle a given URL or request pattern.
 
+## Router
+
+The part of the application that checks incoming requests and decides which route or action should handle them.
+
 ## Session
 
 Server-side state associated with a client across multiple requests, usually linked through a cookie.
 
+## Status code
+
+The numeric part of an HTTP response that says what happened, such as `200` for success or `404` for not found.
+
 ## Static asset
 
 A file served as-is, such as a CSS file, JavaScript file, image, or font.
+
+## Cookie
+
+A small piece of data stored by the browser and sent back with later requests, often used to help identify a session.
+
+## Layout
+
+Magento structure that defines which page pieces should appear and where they should be placed.
+
+## Block
+
+Magento class often used to prepare data for page rendering and connect templates to backend logic.
+
+## Model
+
+A class that represents or works with application data and business rules.
+
+## Observer
+
+Code that listens for a named event and runs when that event is triggered.
+
+## Object manager
+
+Magento's service container that creates objects and resolves their dependencies.
+
+## Plugin
+
+Magento code that runs before, after, or around a public method to change behavior without editing the original class.
+
+## Repository
+
+A class or interface used to load and save a certain kind of data in a consistent way.
 
 ## Service contract
 
