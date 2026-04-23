@@ -5,16 +5,19 @@
 This page explains the full path from typing a URL in a browser to seeing HTML, JSON, or assets rendered on screen.
 
 ```mermaid
-flowchart LR
-    A["User clicks link or enters URL"] --> B["Browser checks cache and DNS"]
-    B --> C["Request goes to nginx"]
-    C --> D["nginx serves static file or forwards to PHP-FPM"]
-    D --> E["Magento bootstrap loads config and DI"]
-    E --> F["Magento resolves route and runs controller"]
-    F --> G["Magento reads from Redis and MySQL as needed"]
-    G --> H["Magento builds HTML or JSON response"]
-    H --> I["nginx returns response to browser"]
-    I --> J["Browser parses HTML, CSS, JS, and renders page"]
+flowchart TB
+    A["User enters URL or clicks link"]
+    B["Browser checks cache and DNS"]
+    C["nginx receives request"]
+    D["nginx serves static file or forwards to PHP-FPM"]
+    E["Magento bootstraps config and DI"]
+    F["Magento matches route and runs controller"]
+    G["Magento reads cache or database"]
+    H["Magento builds HTML or JSON response"]
+    I["nginx returns response"]
+    J["Browser parses assets and renders page"]
+
+    A --> B --> C --> D --> E --> F --> G --> H --> I --> J
 ```
 
 ## Why it exists
@@ -64,4 +67,3 @@ If the HTML is correct but the page still looks wrong, the issue may be frontend
 - [HTTP, Headers, Cookies, and Sessions](http-requests-responses-headers-cookies-sessions.md)
 - [Magento Request Lifecycle](../03-magento-core/magento-request-lifecycle.md)
 - [Nginx, PHP-FPM, MySQL, Redis: Who Does What](../04-runtime-devops/nginx-php-fpm-mysql-redis-who-does-what.md)
-

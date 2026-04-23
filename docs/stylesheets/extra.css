@@ -1,0 +1,8 @@
+.md-typeset .mermaid {
+  text-align: center;
+}
+
+.md-typeset .mermaid svg {
+  height: auto;
+  max-width: 100%;
+}
