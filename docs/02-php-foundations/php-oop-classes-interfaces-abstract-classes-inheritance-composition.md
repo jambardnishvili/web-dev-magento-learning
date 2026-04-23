@@ -2,7 +2,7 @@
 
 ![PHP OOP comparison graphic](../assets/images/php-oop-comparison.svg)
 
-!!! note "Beginner note"
+!!! note
     If words like "abstract class" or "composition" are new, that is normal. Read this page as a comparison page: what each tool is for, not as something you are expected to already know.
 
 ## What it is

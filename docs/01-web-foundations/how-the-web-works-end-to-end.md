@@ -1,6 +1,6 @@
 # How the Web Works End to End
 
-!!! note "Beginner note"
+!!! note
     This page is a map, not a test. You do not need to fully understand every term on the first read. The goal is to see the big picture first, then learn the names of each part.
 
 ## What it is

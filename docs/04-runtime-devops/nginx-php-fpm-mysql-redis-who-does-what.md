@@ -2,7 +2,7 @@
 
 ![Runtime stack layer diagram](../assets/images/runtime-stack-layers.svg)
 
-!!! note "Beginner note"
+!!! note
     These names can look like random backend jargon at first. They are not. They are just different parts of the stack with different jobs.
 
 ## What it is
