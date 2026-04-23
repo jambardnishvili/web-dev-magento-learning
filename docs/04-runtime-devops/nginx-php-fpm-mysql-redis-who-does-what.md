@@ -2,6 +2,9 @@
 
 ![Runtime stack layer diagram](../assets/images/runtime-stack-layers.svg)
 
+!!! note "Beginner note"
+    These names can look like random backend jargon at first. They are not. They are just different parts of the stack with different jobs.
+
 ## What it is
 
 These are four different runtime components commonly found around a Magento installation:
@@ -10,6 +13,13 @@ These are four different runtime components commonly found around a Magento inst
 - PHP-FPM: PHP worker manager
 - MySQL: durable relational database
 - Redis: fast in-memory store
+
+In plain English:
+
+- nginx = the front door for web traffic
+- PHP-FPM = the thing that actually runs PHP
+- MySQL = long-term business data storage
+- Redis = very fast temporary storage
 
 ## Why it exists
 
@@ -57,4 +67,3 @@ If the cart looks stale, the problem may be cache or session state rather than t
 - [How the Web Works End to End](../01-web-foundations/how-the-web-works-end-to-end.md)
 - [HTTP, Headers, Cookies, and Sessions](../01-web-foundations/http-requests-responses-headers-cookies-sessions.md)
 - [Magento Request Lifecycle](../03-magento-core/magento-request-lifecycle.md)
-

@@ -2,6 +2,9 @@
 
 ![PHP OOP comparison graphic](../assets/images/php-oop-comparison.svg)
 
+!!! note "Beginner note"
+    If words like "abstract class" or "composition" are new, that is normal. Read this page as a comparison page: what each tool is for, not as something you are expected to already know.
+
 ## What it is
 
 These are the main building blocks for structuring object-oriented PHP code:
@@ -35,6 +38,14 @@ There are two common bad extremes:
 
 Modern PHP usually prefers composition first, interfaces when a stable contract matters, and abstract classes only when shared base behavior is genuinely useful.
 
+In plain English:
+
+- class = a real object you can use
+- interface = a promise about available methods
+- abstract class = a half-built parent class
+- inheritance = "this class extends that parent"
+- composition = "this class uses helper objects"
+
 ## Magento-specific example
 
 Magento often defines a public interface such as a repository or service contract, then injects an implementation through dependency injection. That lets the rest of the system depend on behavior, not a specific class name.
@@ -58,4 +69,3 @@ That is why Magento code often looks more abstract than plain PHP apps at first.
 
 - [Why Interfaces Exist](why-interfaces-exist-and-when-not-to-use-them.md)
 - [Magento Request Lifecycle](../03-magento-core/magento-request-lifecycle.md)
-

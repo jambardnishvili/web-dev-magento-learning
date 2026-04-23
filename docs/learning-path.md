@@ -2,6 +2,8 @@
 
 This path is designed for someone who wants to understand not just how to write code, but why the stack is shaped the way it is.
 
+Rule for this site: if a word feels too advanced, stop and check the [Glossary](glossary.md). Early pages should teach the idea before expecting the jargon.
+
 ## Stage 1: Web basics first
 
 Read these in order:
@@ -48,4 +50,3 @@ After finishing the first pass, go back through the diagrams and ask:
 - Which layer can make the application look wrong even when code is right?
 
 That loop turns the site from passive reading into a usable mental model.
-

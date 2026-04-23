@@ -1,5 +1,8 @@
 # How the Web Works End to End
 
+!!! note "Beginner note"
+    This page is a map, not a test. You do not need to fully understand every term on the first read. The goal is to see the big picture first, then learn the names of each part.
+
 ## What it is
 
 This page explains the full path from typing a URL in a browser to seeing HTML, JSON, or assets rendered on screen.
@@ -7,22 +10,43 @@ This page explains the full path from typing a URL in a browser to seeing HTML, 
 ```mermaid
 flowchart TB
     A["User enters URL or clicks link"]
-    B["Browser checks cache and DNS"]
-    C["nginx receives request"]
-    D["nginx serves static file or forwards to PHP-FPM"]
-    E["Magento bootstraps config and DI"]
-    F["Magento matches route and runs controller"]
-    G["Magento reads cache or database"]
+    B["Browser finds site address and checks saved data"]
+    C["Web server (nginx) receives request"]
+    D["Web server serves file or sends PHP work to PHP-FPM"]
+    E["Magento starts up and loads its setup"]
+    F["Magento decides which code should handle URL"]
+    G["Magento reads saved fast data or database data"]
     H["Magento builds HTML or JSON response"]
-    I["nginx returns response"]
+    I["Web server returns response"]
     J["Browser parses assets and renders page"]
 
     A --> B --> C --> D --> E --> F --> G --> H --> I --> J
 ```
 
+## Terms used in this page
+
+Before going deeper, here is the same vocabulary in plain English:
+
+- `DNS`: how the browser finds the address of the site
+- `cache`: saved data used to avoid repeating work
+- `nginx`: the web server that receives the request first
+- `PHP-FPM`: the PHP worker process that actually runs PHP code
+- `bootstrap`: the app startup step
+- `route`: the rule that decides which code handles the URL
+- `database`: durable stored data such as products, customers, and orders
+- `assets`: files like CSS, JavaScript, images, and fonts
+
 ## Why it exists
 
-Without this model, it is hard to debug problems because every issue feels like “Magento is broken.” In reality, a problem may belong to DNS, nginx, PHP-FPM, cache, routing, database access, or frontend rendering.
+Without this model, it is hard to debug problems because every issue feels like “Magento is broken.” In reality, a problem may belong to:
+
+- how the browser found the site
+- the web server
+- the PHP worker process
+- saved cached data
+- Magento routing or business logic
+- database access
+- frontend rendering in the browser
 
 ## When to use it
 
@@ -38,18 +62,18 @@ Use this model when you need to reason about:
 The wrong alternative is to think of “the site” as one box. Real systems are layered:
 
 - browser handles rendering and client-side behavior
-- nginx handles HTTP entry and static assets
-- PHP-FPM executes PHP workers
+- the web server (`nginx`) handles the first HTTP entry and static files
+- the PHP worker layer (`PHP-FPM`) runs PHP code
 - Magento coordinates application logic
-- Redis and MySQL provide different kinds of storage
+- storage layers such as Redis and MySQL provide different kinds of saved data
 
 ## Magento-specific example
 
 A shopper opens a product page:
 
 1. The browser requests `/catalog/product/view` or a rewritten product URL.
-2. nginx receives the request and forwards it to PHP-FPM.
-3. Magento bootstraps, resolves the route, and builds the page.
+2. The web server receives the request and forwards PHP work to PHP-FPM.
+3. Magento starts up, decides which code should handle the URL, and builds the page.
 4. Magento may read cache from Redis and product data from MySQL.
 5. The final HTML goes back through nginx to the browser.
 
@@ -57,8 +81,8 @@ If the HTML is correct but the page still looks wrong, the issue may be frontend
 
 ## Common mistakes
 
-- Thinking nginx executes PHP. It does not. It forwards work to PHP-FPM.
-- Thinking Magento stores everything in MySQL. It commonly uses Redis for cache and sessions.
+- Thinking the web server executes PHP. It does not. It passes that work to PHP-FPM.
+- Thinking Magento stores everything in one place. It often uses Redis for fast temporary data and MySQL for durable business data.
 - Thinking the browser just displays HTML. It also runs JavaScript, caches assets, and can change what the user sees after the response arrives.
 - Debugging only application code when the failure is actually before Magento or after Magento.
 

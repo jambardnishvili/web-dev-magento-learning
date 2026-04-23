@@ -2,6 +2,8 @@
 
 This site is a structured reference for learning how modern web apps work, how PHP applications are designed, how Magento fits those pieces together, and how runtime infrastructure affects real behavior.
 
+It is being written for a learner, not for someone already deep in the stack. New terms should be introduced in plain language first, then named precisely.
+
 Use it in layers:
 
 1. Start with the web foundations pages if the request/response model is still fuzzy.
@@ -22,6 +24,8 @@ Each main page follows the same structure:
 - Common mistakes
 - Related pages
 
+If a term is unfamiliar, check the [Glossary](glossary.md). The goal is that you should not need prior Magento or devops experience to start reading.
+
 ## Visuals
 
 This site uses two kinds of visuals:
@@ -35,4 +39,3 @@ This site uses two kinds of visuals:
 - [PHP OOP Foundations](02-php-foundations/php-oop-classes-interfaces-abstract-classes-inheritance-composition.md)
 - [Magento Request Lifecycle](03-magento-core/magento-request-lifecycle.md)
 - [Nginx, PHP-FPM, MySQL, Redis: Who Does What](04-runtime-devops/nginx-php-fpm-mysql-redis-who-does-what.md)
-
