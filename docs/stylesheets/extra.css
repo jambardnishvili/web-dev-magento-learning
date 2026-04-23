@@ -6,3 +6,13 @@
   height: auto;
   max-width: 100%;
 }
+
+.md-typeset .explainer-embed {
+  background: #f8fafc;
+  border: 1px solid #d9e2ec;
+  border-radius: 16px;
+  display: block;
+  margin: 1rem auto 1.5rem;
+  max-width: 980px;
+  width: 100%;
+}

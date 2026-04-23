@@ -23,6 +23,14 @@ flowchart TB
     A --> B --> C --> D --> E --> F --> G --> H --> I --> J
 ```
 
+## Quick visual walkthrough
+
+<object class="explainer-embed" data="../assets/animations/web-request-flow.svg" type="image/svg+xml">
+  Quick explainer animation showing how a browser request moves through the web server, PHP, Magento, data storage, and back to the browser.
+</object>
+
+This loop is meant to make the order feel familiar. It is not trying to teach every technical detail at once.
+
 ## Terms used in this page
 
 Before going deeper, here is the same vocabulary in plain English:

@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="980" viewBox="0 0 1100 980" role="img" aria-labelledby="title desc">
+  <title id="title">How a web request moves through the stack</title>
+  <desc id="desc">Animated explainer showing a request moving from browser to web server to PHP to Magento to data storage and back to browser.</desc>
+  <style>
+    .bg { fill: #f8fafc; }
+    .title { font: 700 34px Helvetica, Arial, sans-serif; fill: #17324d; }
+    .subtitle { font: 18px Helvetica, Arial, sans-serif; fill: #486581; }
+    .label { font: 700 24px Helvetica, Arial, sans-serif; fill: #17324d; }
+    .copy { font: 18px Helvetica, Arial, sans-serif; fill: #334e68; }
+    .stepnum { font: 700 18px Helvetica, Arial, sans-serif; fill: #17324d; }
+    .box { fill: #ffffff; stroke: #cbd5e0; stroke-width: 3; rx: 20; }
+    .arrow { stroke: #9fb3c8; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .dot { fill: #d97706; opacity: 0; }
+
+    .stepbox {
+      animation: pulse 12s infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .arrowflash {
+      animation: flash 12s infinite;
+    }
+
+    .dotmove {
+      animation: travel 12s infinite;
+    }
+
+    .delay1 { animation-delay: 0s; }
+    .delay2 { animation-delay: 2s; }
+    .delay3 { animation-delay: 4s; }
+    .delay4 { animation-delay: 6s; }
+    .delay5 { animation-delay: 8s; }
+    .delay6 { animation-delay: 10s; }
+
+    @keyframes pulse {
+      0%, 12% { opacity: 1; }
+      4%, 8% { opacity: 1; }
+      2%, 10% { opacity: 1; }
+      0%, 100% { }
+      0%, 100% { }
+    }
+
+    @keyframes flash {
+      0%, 100% { stroke: #9fb3c8; }
+      8%, 16% { stroke: #d97706; }
+    }
+
+    @keyframes travel {
+      0%, 100% { opacity: 0; }
+      10%, 15% { opacity: 1; }
+      18%, 100% { opacity: 0; }
+    }
+
+    .active1 { animation: glow1 12s infinite; }
+    .active2 { animation: glow2 12s infinite; }
+    .active3 { animation: glow3 12s infinite; }
+    .active4 { animation: glow4 12s infinite; }
+    .active5 { animation: glow5 12s infinite; }
+    .active6 { animation: glow6 12s infinite; }
+
+    @keyframes glow1 {
+      0%, 12% { fill: #fff7ed; stroke: #d97706; }
+      13%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    }
+    @keyframes glow2 {
+      0%, 15% { fill: #ffffff; stroke: #cbd5e0; }
+      16%, 28% { fill: #fff7ed; stroke: #d97706; }
+      29%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    }
+    @keyframes glow3 {
+      0%, 31% { fill: #ffffff; stroke: #cbd5e0; }
+      32%, 44% { fill: #fff7ed; stroke: #d97706; }
+      45%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    }
+    @keyframes glow4 {
+      0%, 47% { fill: #ffffff; stroke: #cbd5e0; }
+      48%, 60% { fill: #fff7ed; stroke: #d97706; }
+      61%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    }
+    @keyframes glow5 {
+      0%, 63% { fill: #ffffff; stroke: #cbd5e0; }
+      64%, 76% { fill: #fff7ed; stroke: #d97706; }
+      77%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    }
+    @keyframes glow6 {
+      0%, 79% { fill: #ffffff; stroke: #cbd5e0; }
+      80%, 96% { fill: #fff7ed; stroke: #d97706; }
+      97%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    }
+
+    .arrow1 { animation: arrow1 12s infinite; }
+    .arrow2 { animation: arrow2 12s infinite; }
+    .arrow3 { animation: arrow3 12s infinite; }
+    .arrow4 { animation: arrow4 12s infinite; }
+    .arrow5 { animation: arrow5 12s infinite; }
+
+    @keyframes arrow1 {
+      0%, 12% { stroke: #d97706; }
+      13%, 100% { stroke: #9fb3c8; }
+    }
+    @keyframes arrow2 {
+      0%, 15% { stroke: #9fb3c8; }
+      16%, 28% { stroke: #d97706; }
+      29%, 100% { stroke: #9fb3c8; }
+    }
+    @keyframes arrow3 {
+      0%, 31% { stroke: #9fb3c8; }
+      32%, 44% { stroke: #d97706; }
+      45%, 100% { stroke: #9fb3c8; }
+    }
+    @keyframes arrow4 {
+      0%, 47% { stroke: #9fb3c8; }
+      48%, 60% { stroke: #d97706; }
+      61%, 100% { stroke: #9fb3c8; }
+    }
+    @keyframes arrow5 {
+      0%, 63% { stroke: #9fb3c8; }
+      64%, 76% { stroke: #d97706; }
+      77%, 100% { stroke: #9fb3c8; }
+    }
+  </style>
+
+  <rect class="bg" width="1100" height="980"/>
+
+  <text x="70" y="78" class="title">Quick explainer: how one request moves through the stack</text>
+  <text x="70" y="114" class="subtitle">One loop. Six stages. Read top to bottom, then watch it repeat.</text>
+
+  <g>
+    <circle cx="110" cy="200" r="26" fill="#e8f1ff" stroke="#2b6cb0" stroke-width="3"/>
+    <text x="110" y="207" text-anchor="middle" class="stepnum">1</text>
+    <rect x="170" y="150" width="760" height="100" class="box active1" rx="20"/>
+    <text x="210" y="193" class="label">Browser starts the request</text>
+    <text x="210" y="225" class="copy">User opens a page. Browser sends a message asking for content.</text>
+  </g>
+
+  <path d="M550 250 L550 305" class="arrow arrow1"/>
+  <polygon points="550,330 536,306 564,306" fill="#9fb3c8">
+    <animate attributeName="fill" values="#d97706;#d97706;#9fb3c8;#9fb3c8" keyTimes="0;0.12;0.13;1" dur="12s" repeatCount="indefinite"/>
+  </polygon>
+
+  <g>
+    <circle cx="110" cy="380" r="26" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+    <text x="110" y="387" text-anchor="middle" class="stepnum">2</text>
+    <rect x="170" y="330" width="760" height="100" class="box active2" rx="20"/>
+    <text x="210" y="373" class="label">Web server receives it</text>
+    <text x="210" y="405" class="copy">nginx is front door. It can return static files or pass PHP work onward.</text>
+  </g>
+
+  <path d="M550 430 L550 485" class="arrow arrow2"/>
+  <polygon points="550,510 536,486 564,486" fill="#9fb3c8">
+    <animate attributeName="fill" values="#9fb3c8;#9fb3c8;#d97706;#d97706;#9fb3c8" keyTimes="0;0.15;0.16;0.28;1" dur="12s" repeatCount="indefinite"/>
+  </polygon>
+
+  <g>
+    <circle cx="110" cy="560" r="26" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    <text x="110" y="567" text-anchor="middle" class="stepnum">3</text>
+    <rect x="170" y="510" width="760" height="100" class="box active3" rx="20"/>
+    <text x="210" y="553" class="label">PHP starts Magento</text>
+    <text x="210" y="585" class="copy">PHP-FPM runs PHP. Magento loads its configuration and gets ready.</text>
+  </g>
+
+  <path d="M550 610 L550 665" class="arrow arrow3"/>
+  <polygon points="550,690 536,666 564,666" fill="#9fb3c8">
+    <animate attributeName="fill" values="#9fb3c8;#9fb3c8;#9fb3c8;#d97706;#d97706;#9fb3c8" keyTimes="0;0.31;0.32;0.44;0.45;1" dur="12s" repeatCount="indefinite"/>
+  </polygon>
+
+  <g>
+    <circle cx="110" cy="740" r="26" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+    <text x="110" y="747" text-anchor="middle" class="stepnum">4</text>
+    <rect x="170" y="690" width="760" height="100" class="box active4" rx="20"/>
+    <text x="210" y="733" class="label">Magento decides what code should handle the URL</text>
+    <text x="210" y="765" class="copy">It matches a route, runs code, and prepares a page, JSON response, or redirect.</text>
+  </g>
+
+  <path d="M550 790 L550 845" class="arrow arrow4"/>
+  <polygon points="550,870 536,846 564,846" fill="#9fb3c8">
+    <animate attributeName="fill" values="#9fb3c8;#9fb3c8;#9fb3c8;#9fb3c8;#d97706;#d97706;#9fb3c8" keyTimes="0;0.47;0.48;0.60;0.61;0.76;1" dur="12s" repeatCount="indefinite"/>
+  </polygon>
+
+  <g>
+    <circle cx="110" cy="920" r="26" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+    <text x="110" y="927" text-anchor="middle" class="stepnum">5</text>
+    <rect x="170" y="870" width="760" height="100" class="box active5" rx="20"/>
+    <text x="210" y="913" class="label">Data is loaded and response goes back</text>
+    <text x="210" y="945" class="copy">Magento may read cache or database data, then sends result back to browser.</text>
+  </g>
+
+  <g>
+    <rect x="800" y="845" width="250" height="110" rx="20" class="box active6"/>
+    <text x="925" y="888" text-anchor="middle" class="label">6. Browser renders</text>
+    <text x="925" y="920" text-anchor="middle" class="copy">HTML, CSS, JS, images</text>
+  </g>
+</svg>
