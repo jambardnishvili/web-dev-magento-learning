@@ -34,6 +34,7 @@ nav:
   - Home: index.md
   - Learning Path: learning-path.md
   - Glossary: glossary.md
+  - Visual System: visual-system.md
   - Foundations:
       - Overview: 01-web-foundations/index.md
       - How the Web Works End to End: 01-web-foundations/how-the-web-works-end-to-end.md

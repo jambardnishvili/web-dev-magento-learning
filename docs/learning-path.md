@@ -4,6 +4,8 @@ This path is designed for someone who wants to understand not just how to write 
 
 Rule for this site: if a word feels too advanced, stop and check the [Glossary](glossary.md). Early pages should teach the idea before expecting the jargon.
 
+Second rule: show the moving picture first. Then explain it in short text.
+
 ## Stage 1: Web basics first
 
 Read these in order:

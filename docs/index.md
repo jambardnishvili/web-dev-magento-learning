@@ -1,6 +1,6 @@
 # Web Dev and Magento Learning Site
 
-This site is a structured reference for learning how modern web apps work, how PHP applications are designed, how Magento fits those pieces together, and how runtime infrastructure affects real behavior.
+This site is a structured visual reference for learning how modern web apps work, how PHP applications are designed, how Magento fits those pieces together, and how runtime infrastructure affects real behavior.
 
 It is being written for a learner, not for someone already deep in the stack. New terms should be introduced in plain language first, then named precisely.
 
@@ -14,8 +14,10 @@ Use it in layers:
 
 ## How to read these pages
 
-Each main page follows the same structure:
+Each main page should follow this structure:
 
+- Visual walkthrough first
+- Terms used in this page
 - What it is
 - Why it exists
 - When to use it
@@ -28,9 +30,16 @@ If a term is unfamiliar, check the [Glossary](glossary.md). The goal is that you
 
 ## Visuals
 
-This site uses two kinds of visuals:
+This site uses a visual-first teaching style:
 
-- Mermaid flow diagrams for end-to-end movement through systems
+- one animated walkthrough for the main idea
+- one supporting static diagram when needed
+- short text below the visual, not long text before it
+
+Preferred visual types:
+
+- HTML/CSS animations for reusable explainer components
+- Mermaid flow diagrams for clean system paths
 - Static SVG comparison graphics for concepts that are easier to see than read
 
 ## Good starting points
