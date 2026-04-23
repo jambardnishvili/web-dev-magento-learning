@@ -5,28 +5,17 @@
 This page explains how a web request enters Magento, gets matched to framework code, and returns a response.
 
 ```mermaid
-sequenceDiagram
-    participant Browser
-    participant Nginx
-    participant PHPFPM as PHP-FPM
-    participant Bootstrap as Magento Bootstrap
-    participant Router as Front Controller and Routers
-    participant Controller
-    participant Services as Services and Models
-    participant Storage as Redis/MySQL
-
-    Browser->>Nginx: HTTP request
-    Nginx->>PHPFPM: Forward PHP request
-    PHPFPM->>Bootstrap: Run pub/index.php
-    Bootstrap->>Router: Build app state and resolve area
-    Router->>Controller: Match route and dispatch action
-    Controller->>Services: Execute business logic
-    Services->>Storage: Read or write cache and database
-    Storage-->>Services: Return data
-    Services-->>Controller: Result data
-    Controller-->>Bootstrap: Page, JSON, redirect, or raw response
-    Bootstrap-->>Nginx: Final response payload
-    Nginx-->>Browser: Response
+flowchart TB
+    A["Browser sends request"] --> B["nginx receives request"]
+    B --> C["PHP-FPM runs pub/index.php"]
+    C --> D["Magento bootstrap loads config and area"]
+    D --> E["Router matches route"]
+    E --> F["Controller runs action"]
+    F --> G["Services and models execute business logic"]
+    G --> H["Redis or MySQL provide data"]
+    H --> I["Magento builds page, JSON, redirect, or raw result"]
+    I --> J["nginx returns response"]
+    J --> K["Browser renders result"]
 ```
 
 ## Why it exists
@@ -77,4 +66,3 @@ For REST endpoints, the area and dispatch path differ, which is why `frontend` D
 - [How the Web Works End to End](../01-web-foundations/how-the-web-works-end-to-end.md)
 - [HTTP, Headers, Cookies, and Sessions](../01-web-foundations/http-requests-responses-headers-cookies-sessions.md)
 - [Nginx, PHP-FPM, MySQL, Redis: Who Does What](../04-runtime-devops/nginx-php-fpm-mysql-redis-who-does-what.md)
-
