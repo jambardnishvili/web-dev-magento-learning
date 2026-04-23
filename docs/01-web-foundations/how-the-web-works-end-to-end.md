@@ -26,7 +26,12 @@ flowchart TB
 ## Quick visual walkthrough
 
 <div class="request-explainer" aria-label="Animated explainer showing how a browser request moves through the browser, web server, PHP, Magento, data storage, and back to the browser.">
-  <div class="request-explainer__stage">
+  <div class="request-explainer__header">
+    <strong>Request walkthrough</strong>
+    <span>One page load moving through browser, server, PHP, Magento, data, and back.</span>
+  </div>
+
+  <div class="request-explainer__layout">
     <div class="request-explainer__browser">
       <div class="request-explainer__browser-bar">
         <span></span><span></span><span></span>
@@ -43,49 +48,63 @@ flowchart TB
         <div class="request-explainer__button">Add to cart</div>
         <div class="request-explainer__rendered">
           <strong>Page rendered</strong>
-          <span>HTML returned</span>
-          <span>CSS and JS applied</span>
+          <span>HTML came back</span>
+          <span>CSS + JS applied</span>
         </div>
       </div>
     </div>
 
-    <div class="request-explainer__flow">
-      <div class="request-explainer__card server">
-        <strong>Web server</strong>
-        <span>Receives request first</span>
-        <span>Can serve static files</span>
+    <div class="request-explainer__pipeline">
+      <div class="request-explainer__progress">
+        <div class="request-explainer__progress-line"></div>
+        <div class="request-explainer__request-chip">GET /product</div>
+        <div class="request-explainer__response-chip">HTML response</div>
       </div>
-      <div class="request-explainer__card php">
-        <strong>PHP</strong>
-        <span>Runs PHP code</span>
-        <span>Starts Magento</span>
-      </div>
-      <div class="request-explainer__card magento">
-        <strong>Magento app</strong>
-        <span>Matches route</span>
-        <span>Builds response</span>
-      </div>
-      <div class="request-explainer__data-row">
-        <div class="request-explainer__card fast">
-          <strong>Fast data</strong>
-          <span>Cache / session</span>
-        </div>
-        <div class="request-explainer__card db">
-          <strong>Database</strong>
-          <span>Durable data</span>
+
+      <div class="request-explainer__step server">
+        <div class="request-explainer__step-number">1</div>
+        <div>
+          <strong>Web server</strong>
+          <span>Receives request first and serves static files if possible.</span>
         </div>
       </div>
-      <div class="request-explainer__request-chip">GET /product</div>
-      <div class="request-explainer__response-chip">HTML response</div>
+
+      <div class="request-explainer__step php">
+        <div class="request-explainer__step-number">2</div>
+        <div>
+          <strong>PHP</strong>
+          <span>Runs PHP code and starts Magento.</span>
+        </div>
+      </div>
+
+      <div class="request-explainer__step magento">
+        <div class="request-explainer__step-number">3</div>
+        <div>
+          <strong>Magento app</strong>
+          <span>Matches route, runs logic, prepares response.</span>
+        </div>
+      </div>
+
+      <div class="request-explainer__step data">
+        <div class="request-explainer__step-number">4</div>
+        <div>
+          <strong>Data layer</strong>
+          <span>May read cache/session or durable database data.</span>
+          <div class="request-explainer__data-pills">
+            <span class="fast">Fast data</span>
+            <span class="db">Database</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="request-explainer__steps">
-    <div>1. Browser asks for page</div>
-    <div>2. Web server receives request</div>
-    <div>3. PHP starts Magento</div>
-    <div>4. Magento loads needed data</div>
-    <div>5. Response returns and page renders</div>
+    <div>Browser asks for page</div>
+    <div>Web server receives request</div>
+    <div>PHP starts Magento</div>
+    <div>Magento loads needed data</div>
+    <div>Response returns and page renders</div>
   </div>
 </div>
 
