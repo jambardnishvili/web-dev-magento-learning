@@ -1,0 +1,13 @@
+{
+  "name": "web-dev-magento-learning",
+  "private": true,
+  "scripts": {
+    "docs:build": ". .venv/bin/activate && mkdocs build --strict",
+    "docs:test": "playwright test",
+    "docs:verify": ". .venv/bin/activate && mkdocs build --strict && playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.1"
+  }
+}
+
