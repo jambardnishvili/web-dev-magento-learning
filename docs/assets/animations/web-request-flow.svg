@@ -1,194 +1,224 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="980" viewBox="0 0 1100 980" role="img" aria-labelledby="title desc">
-  <title id="title">How a web request moves through the stack</title>
-  <desc id="desc">Animated explainer showing a request moving from browser to web server to PHP to Magento to data storage and back to browser.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
+  <title id="title">Animated explainer showing a browser request moving through the web stack</title>
+  <desc id="desc">A browser window sends a request to a web server, Magento boots through PHP, data is loaded from cache or database, and the rendered page returns to the browser.</desc>
   <style>
-    .bg { fill: #f8fafc; }
+    .bg { fill: #f7fafc; }
+    .panel { fill: #ffffff; stroke: #d9e2ec; stroke-width: 3; rx: 24; }
     .title { font: 700 34px Helvetica, Arial, sans-serif; fill: #17324d; }
     .subtitle { font: 18px Helvetica, Arial, sans-serif; fill: #486581; }
-    .label { font: 700 24px Helvetica, Arial, sans-serif; fill: #17324d; }
+    .card-title { font: 700 24px Helvetica, Arial, sans-serif; fill: #17324d; }
     .copy { font: 18px Helvetica, Arial, sans-serif; fill: #334e68; }
-    .stepnum { font: 700 18px Helvetica, Arial, sans-serif; fill: #17324d; }
-    .box { fill: #ffffff; stroke: #cbd5e0; stroke-width: 3; rx: 20; }
-    .arrow { stroke: #9fb3c8; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-    .dot { fill: #d97706; opacity: 0; }
+    .small { font: 16px Helvetica, Arial, sans-serif; fill: #627d98; }
+    .chip-text { font: 700 16px Helvetica, Arial, sans-serif; fill: #8a4b00; }
+    .browser-bar { fill: #e8f1ff; stroke: #2b6cb0; stroke-width: 2; }
+    .browser-body { fill: #ffffff; stroke: #2b6cb0; stroke-width: 3; }
+    .browser-line { fill: #dbeafe; }
+    .browser-hero { fill: #eff6ff; }
+    .server-fill { fill: #e0f2fe; stroke: #0284c7; stroke-width: 3; }
+    .php-fill { fill: #ede9fe; stroke: #7c3aed; stroke-width: 3; }
+    .magento-fill { fill: #fef3c7; stroke: #d97706; stroke-width: 3; }
+    .data-fill { fill: #ecfdf3; stroke: #16a34a; stroke-width: 3; }
+    .db-fill { fill: #fef2f2; stroke: #dc2626; stroke-width: 3; }
+    .arrow { stroke: #bcccdc; stroke-width: 5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .pulse { opacity: .55; }
+    .chip { fill: #fff7ed; stroke: #d97706; stroke-width: 3; rx: 16; }
+    .chip-shadow { fill: #fdba74; opacity: .2; rx: 18; }
+    .render-content { opacity: 0; animation: render-content 10s infinite; }
+    .loading-bar { transform-origin: left center; animation: loading-bar 10s infinite; }
+    .flash-browser { animation: flash-browser 10s infinite; }
+    .flash-server { animation: flash-server 10s infinite; }
+    .flash-php { animation: flash-php 10s infinite; }
+    .flash-magento { animation: flash-magento 10s infinite; }
+    .flash-data { animation: flash-data 10s infinite; }
+    .request-chip { animation: request-chip 10s infinite ease-in-out; }
+    .request-chip-back { animation: request-chip-back 10s infinite ease-in-out; }
+    .response-chip { animation: response-chip 10s infinite ease-in-out; }
+    .status-1 { animation: status-1 10s infinite; }
+    .status-2 { animation: status-2 10s infinite; }
+    .status-3 { animation: status-3 10s infinite; }
+    .status-4 { animation: status-4 10s infinite; }
+    .status-5 { animation: status-5 10s infinite; }
 
-    .stepbox {
-      animation: pulse 12s infinite;
-      transform-box: fill-box;
-      transform-origin: center;
+    @keyframes flash-browser {
+      0%, 12% { stroke: #d97706; fill: #fff7ed; }
+      13%, 100% { stroke: #2b6cb0; fill: #ffffff; }
     }
-
-    .arrowflash {
-      animation: flash 12s infinite;
+    @keyframes flash-server {
+      0%, 15% { stroke: #0284c7; fill: #e0f2fe; }
+      16%, 28% { stroke: #d97706; fill: #fff7ed; }
+      29%, 100% { stroke: #0284c7; fill: #e0f2fe; }
     }
-
-    .dotmove {
-      animation: travel 12s infinite;
+    @keyframes flash-php {
+      0%, 31% { stroke: #7c3aed; fill: #ede9fe; }
+      32%, 44% { stroke: #d97706; fill: #fff7ed; }
+      45%, 100% { stroke: #7c3aed; fill: #ede9fe; }
     }
-
-    .delay1 { animation-delay: 0s; }
-    .delay2 { animation-delay: 2s; }
-    .delay3 { animation-delay: 4s; }
-    .delay4 { animation-delay: 6s; }
-    .delay5 { animation-delay: 8s; }
-    .delay6 { animation-delay: 10s; }
-
-    @keyframes pulse {
-      0%, 12% { opacity: 1; }
-      4%, 8% { opacity: 1; }
-      2%, 10% { opacity: 1; }
-      0%, 100% { }
-      0%, 100% { }
+    @keyframes flash-magento {
+      0%, 47% { stroke: #d97706; fill: #fef3c7; }
+      48%, 60% { stroke: #92400e; fill: #fff7ed; }
+      61%, 100% { stroke: #d97706; fill: #fef3c7; }
     }
-
-    @keyframes flash {
-      0%, 100% { stroke: #9fb3c8; }
-      8%, 16% { stroke: #d97706; }
+    @keyframes flash-data {
+      0%, 63% { opacity: 1; }
+      64%, 78% { opacity: .75; }
+      79%, 100% { opacity: 1; }
     }
-
-    @keyframes travel {
-      0%, 100% { opacity: 0; }
-      10%, 15% { opacity: 1; }
-      18%, 100% { opacity: 0; }
+    @keyframes request-chip {
+      0%, 10% { opacity: 0; transform: translate(0px, 0px); }
+      12%, 18% { opacity: 1; transform: translate(145px, 0px); }
+      20%, 28% { opacity: 1; transform: translate(345px, 0px); }
+      30%, 38% { opacity: 1; transform: translate(560px, 0px); }
+      40%, 48% { opacity: 1; transform: translate(770px, 0px); }
+      50%, 100% { opacity: 0; transform: translate(770px, 0px); }
     }
-
-    .active1 { animation: glow1 12s infinite; }
-    .active2 { animation: glow2 12s infinite; }
-    .active3 { animation: glow3 12s infinite; }
-    .active4 { animation: glow4 12s infinite; }
-    .active5 { animation: glow5 12s infinite; }
-    .active6 { animation: glow6 12s infinite; }
-
-    @keyframes glow1 {
-      0%, 12% { fill: #fff7ed; stroke: #d97706; }
-      13%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    @keyframes request-chip-back {
+      0%, 46% { opacity: 0; transform: translate(0px, 0px); }
+      48%, 56% { opacity: 1; transform: translate(0px, 0px); }
+      58%, 66% { opacity: 1; transform: translate(-200px, 0px); }
+      68%, 76% { opacity: 1; transform: translate(200px, 0px); }
+      78%, 100% { opacity: 0; transform: translate(200px, 0px); }
     }
-    @keyframes glow2 {
-      0%, 15% { fill: #ffffff; stroke: #cbd5e0; }
-      16%, 28% { fill: #fff7ed; stroke: #d97706; }
-      29%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    @keyframes response-chip {
+      0%, 58% { opacity: 0; transform: translate(0px, 0px); }
+      60%, 68% { opacity: 1; transform: translate(-220px, 0px); }
+      70%, 78% { opacity: 1; transform: translate(-440px, 0px); }
+      80%, 88% { opacity: 1; transform: translate(-665px, 0px); }
+      90%, 96% { opacity: 1; transform: translate(-885px, 0px); }
+      98%, 100% { opacity: 0; transform: translate(-885px, 0px); }
     }
-    @keyframes glow3 {
-      0%, 31% { fill: #ffffff; stroke: #cbd5e0; }
-      32%, 44% { fill: #fff7ed; stroke: #d97706; }
-      45%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    @keyframes loading-bar {
+      0%, 83% { transform: scaleX(0); }
+      86%, 100% { transform: scaleX(1); }
     }
-    @keyframes glow4 {
-      0%, 47% { fill: #ffffff; stroke: #cbd5e0; }
-      48%, 60% { fill: #fff7ed; stroke: #d97706; }
-      61%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    @keyframes render-content {
+      0%, 84% { opacity: 0; }
+      88%, 100% { opacity: 1; }
     }
-    @keyframes glow5 {
-      0%, 63% { fill: #ffffff; stroke: #cbd5e0; }
-      64%, 76% { fill: #fff7ed; stroke: #d97706; }
-      77%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    @keyframes status-1 {
+      0%, 11% { opacity: 1; }
+      12%, 100% { opacity: .35; }
     }
-    @keyframes glow6 {
-      0%, 79% { fill: #ffffff; stroke: #cbd5e0; }
-      80%, 96% { fill: #fff7ed; stroke: #d97706; }
-      97%, 100% { fill: #ffffff; stroke: #cbd5e0; }
+    @keyframes status-2 {
+      0%, 15% { opacity: .35; }
+      16%, 27% { opacity: 1; }
+      28%, 100% { opacity: .35; }
     }
-
-    .arrow1 { animation: arrow1 12s infinite; }
-    .arrow2 { animation: arrow2 12s infinite; }
-    .arrow3 { animation: arrow3 12s infinite; }
-    .arrow4 { animation: arrow4 12s infinite; }
-    .arrow5 { animation: arrow5 12s infinite; }
-
-    @keyframes arrow1 {
-      0%, 12% { stroke: #d97706; }
-      13%, 100% { stroke: #9fb3c8; }
+    @keyframes status-3 {
+      0%, 31% { opacity: .35; }
+      32%, 43% { opacity: 1; }
+      44%, 100% { opacity: .35; }
     }
-    @keyframes arrow2 {
-      0%, 15% { stroke: #9fb3c8; }
-      16%, 28% { stroke: #d97706; }
-      29%, 100% { stroke: #9fb3c8; }
+    @keyframes status-4 {
+      0%, 47% { opacity: .35; }
+      48%, 59% { opacity: 1; }
+      60%, 100% { opacity: .35; }
     }
-    @keyframes arrow3 {
-      0%, 31% { stroke: #9fb3c8; }
-      32%, 44% { stroke: #d97706; }
-      45%, 100% { stroke: #9fb3c8; }
-    }
-    @keyframes arrow4 {
-      0%, 47% { stroke: #9fb3c8; }
-      48%, 60% { stroke: #d97706; }
-      61%, 100% { stroke: #9fb3c8; }
-    }
-    @keyframes arrow5 {
-      0%, 63% { stroke: #9fb3c8; }
-      64%, 76% { stroke: #d97706; }
-      77%, 100% { stroke: #9fb3c8; }
+    @keyframes status-5 {
+      0%, 63% { opacity: .35; }
+      64%, 79% { opacity: 1; }
+      80%, 100% { opacity: .35; }
     }
   </style>
 
-  <rect class="bg" width="1100" height="980"/>
+  <rect class="bg" width="1280" height="860"/>
+  <text x="64" y="72" class="title">Request walkthrough</text>
+  <text x="64" y="106" class="subtitle">Watch one page load travel through browser, web server, PHP, Magento, data storage, and back.</text>
 
-  <text x="70" y="78" class="title">Quick explainer: how one request moves through the stack</text>
-  <text x="70" y="114" class="subtitle">One loop. Six stages. Read top to bottom, then watch it repeat.</text>
+  <rect x="48" y="142" width="1184" height="650" class="panel"/>
 
-  <g>
-    <circle cx="110" cy="200" r="26" fill="#e8f1ff" stroke="#2b6cb0" stroke-width="3"/>
-    <text x="110" y="207" text-anchor="middle" class="stepnum">1</text>
-    <rect x="170" y="150" width="760" height="100" class="box active1" rx="20"/>
-    <text x="210" y="193" class="label">Browser starts the request</text>
-    <text x="210" y="225" class="copy">User opens a page. Browser sends a message asking for content.</text>
+  <g transform="translate(84 200)">
+    <rect x="0" y="0" width="280" height="360" rx="22" class="browser-body flash-browser"/>
+    <rect x="0" y="0" width="280" height="50" rx="22" class="browser-bar"/>
+    <circle cx="28" cy="25" r="7" fill="#f87171"/>
+    <circle cx="52" cy="25" r="7" fill="#fbbf24"/>
+    <circle cx="76" cy="25" r="7" fill="#4ade80"/>
+    <rect x="102" y="12" width="150" height="26" rx="13" fill="#ffffff" stroke="#cbd5e0"/>
+    <text x="116" y="31" class="small">shop.example.com</text>
+    <rect x="26" y="78" width="228" height="92" rx="16" class="browser-hero"/>
+    <text x="44" y="116" class="card-title">Product page</text>
+    <text x="44" y="147" class="copy">Customer opens item</text>
+    <rect x="26" y="192" width="228" height="14" rx="7" class="browser-line"/>
+    <rect x="26" y="222" width="184" height="14" rx="7" class="browser-line"/>
+    <rect x="26" y="252" width="206" height="14" rx="7" class="browser-line"/>
+    <rect x="26" y="292" width="110" height="34" rx="17" fill="#dbeafe"/>
+    <text x="58" y="314" class="small">Add to cart</text>
+    <g class="render-content">
+      <rect x="26" y="192" width="228" height="110" rx="16" fill="#dcfce7"/>
+      <text x="44" y="230" class="card-title">Page rendered</text>
+      <text x="44" y="260" class="copy">HTML came back</text>
+      <text x="44" y="288" class="copy">CSS + JS applied</text>
+    </g>
+    <rect x="26" y="334" width="228" height="10" rx="5" fill="#e2e8f0"/>
+    <rect x="26" y="334" width="228" height="10" rx="5" fill="#f59e0b" class="loading-bar"/>
   </g>
 
-  <path d="M550 250 L550 305" class="arrow arrow1"/>
-  <polygon points="550,330 536,306 564,306" fill="#9fb3c8">
-    <animate attributeName="fill" values="#d97706;#d97706;#9fb3c8;#9fb3c8" keyTimes="0;0.12;0.13;1" dur="12s" repeatCount="indefinite"/>
-  </polygon>
+  <g transform="translate(438 190)">
+    <rect x="0" y="0" width="180" height="160" rx="22" class="server-fill flash-server"/>
+    <text x="40" y="52" class="card-title">Web server</text>
+    <text x="40" y="84" class="copy">nginx</text>
+    <text x="40" y="118" class="small">Receives request first</text>
+    <text x="40" y="142" class="small">Serves static files</text>
 
-  <g>
-    <circle cx="110" cy="380" r="26" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
-    <text x="110" y="387" text-anchor="middle" class="stepnum">2</text>
-    <rect x="170" y="330" width="760" height="100" class="box active2" rx="20"/>
-    <text x="210" y="373" class="label">Web server receives it</text>
-    <text x="210" y="405" class="copy">nginx is front door. It can return static files or pass PHP work onward.</text>
+    <rect x="220" y="0" width="180" height="160" rx="22" class="php-fill flash-php"/>
+    <text x="282" y="52" class="card-title">PHP</text>
+    <text x="256" y="84" class="copy">PHP-FPM runs code</text>
+    <text x="258" y="118" class="small">Starts Magento</text>
+
+    <rect x="440" y="0" width="220" height="160" rx="22" class="magento-fill flash-magento"/>
+    <text x="492" y="52" class="card-title">Magento app</text>
+    <text x="472" y="84" class="copy">Matches route</text>
+    <text x="472" y="112" class="copy">Runs logic</text>
+    <text x="472" y="140" class="copy">Builds response</text>
   </g>
 
-  <path d="M550 430 L550 485" class="arrow arrow2"/>
-  <polygon points="550,510 536,486 564,486" fill="#9fb3c8">
-    <animate attributeName="fill" values="#9fb3c8;#9fb3c8;#d97706;#d97706;#9fb3c8" keyTimes="0;0.15;0.16;0.28;1" dur="12s" repeatCount="indefinite"/>
-  </polygon>
+  <g transform="translate(700 430)">
+    <rect x="0" y="0" width="210" height="146" rx="22" class="data-fill flash-data"/>
+    <text x="54" y="50" class="card-title">Fast data</text>
+    <text x="54" y="84" class="copy">Cache / session</text>
+    <text x="54" y="116" class="small status-4">Quick reads</text>
 
-  <g>
-    <circle cx="110" cy="560" r="26" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
-    <text x="110" y="567" text-anchor="middle" class="stepnum">3</text>
-    <rect x="170" y="510" width="760" height="100" class="box active3" rx="20"/>
-    <text x="210" y="553" class="label">PHP starts Magento</text>
-    <text x="210" y="585" class="copy">PHP-FPM runs PHP. Magento loads its configuration and gets ready.</text>
-  </g>
-
-  <path d="M550 610 L550 665" class="arrow arrow3"/>
-  <polygon points="550,690 536,666 564,666" fill="#9fb3c8">
-    <animate attributeName="fill" values="#9fb3c8;#9fb3c8;#9fb3c8;#d97706;#d97706;#9fb3c8" keyTimes="0;0.31;0.32;0.44;0.45;1" dur="12s" repeatCount="indefinite"/>
-  </polygon>
-
-  <g>
-    <circle cx="110" cy="740" r="26" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
-    <text x="110" y="747" text-anchor="middle" class="stepnum">4</text>
-    <rect x="170" y="690" width="760" height="100" class="box active4" rx="20"/>
-    <text x="210" y="733" class="label">Magento decides what code should handle the URL</text>
-    <text x="210" y="765" class="copy">It matches a route, runs code, and prepares a page, JSON response, or redirect.</text>
-  </g>
-
-  <path d="M550 790 L550 845" class="arrow arrow4"/>
-  <polygon points="550,870 536,846 564,846" fill="#9fb3c8">
-    <animate attributeName="fill" values="#9fb3c8;#9fb3c8;#9fb3c8;#9fb3c8;#d97706;#d97706;#9fb3c8" keyTimes="0;0.47;0.48;0.60;0.61;0.76;1" dur="12s" repeatCount="indefinite"/>
-  </polygon>
-
-  <g>
-    <circle cx="110" cy="920" r="26" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
-    <text x="110" y="927" text-anchor="middle" class="stepnum">5</text>
-    <rect x="170" y="870" width="760" height="100" class="box active5" rx="20"/>
-    <text x="210" y="913" class="label">Data is loaded and response goes back</text>
-    <text x="210" y="945" class="copy">Magento may read cache or database data, then sends result back to browser.</text>
+    <rect x="250" y="0" width="210" height="146" rx="22" class="db-fill flash-data"/>
+    <ellipse cx="355" cy="34" rx="56" ry="18" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+    <rect x="299" y="34" width="112" height="66" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+    <ellipse cx="355" cy="100" rx="56" ry="18" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+    <text x="324" y="134" class="card-title">Database</text>
   </g>
 
   <g>
-    <rect x="800" y="845" width="250" height="110" rx="20" class="box active6"/>
-    <text x="925" y="888" text-anchor="middle" class="label">6. Browser renders</text>
-    <text x="925" y="920" text-anchor="middle" class="copy">HTML, CSS, JS, images</text>
+    <path d="M366 380 L438 380" class="arrow"/>
+    <path d="M618 380 L658 380" class="arrow"/>
+    <path d="M838 380 L878 380" class="arrow"/>
+    <path d="M988 350 L988 430 L910 430" class="arrow"/>
+    <path d="M988 350 L1138 350 L1138 430" class="arrow"/>
+    <path d="M910 576 L910 640 L770 640 L770 380" class="arrow pulse"/>
+    <path d="M1138 576 L1138 640 L770 640 L770 380" class="arrow pulse"/>
+    <path d="M878 410 L366 410" class="arrow pulse"/>
+  </g>
+
+  <g transform="translate(362 350)">
+    <rect x="-4" y="-4" width="122" height="44" class="chip-shadow"/>
+    <rect x="0" y="0" width="114" height="36" class="chip request-chip"/>
+    <text x="18" y="24" class="chip-text request-chip">GET /product</text>
+  </g>
+
+  <g transform="translate(878 444)">
+    <rect x="-4" y="-4" width="136" height="44" class="chip-shadow"/>
+    <rect x="0" y="0" width="128" height="36" class="chip request-chip-back"/>
+    <text x="18" y="24" class="chip-text request-chip-back">load data</text>
+  </g>
+
+  <g transform="translate(966 394)">
+    <rect x="-4" y="-4" width="146" height="44" class="chip-shadow"/>
+    <rect x="0" y="0" width="138" height="36" class="chip response-chip"/>
+    <text x="20" y="24" class="chip-text response-chip">HTML response</text>
+  </g>
+
+  <g transform="translate(86 610)">
+    <text x="0" y="0" class="card-title">What to notice</text>
+    <text x="0" y="40" class="copy status-1">1. Browser asks for a page</text>
+    <text x="0" y="72" class="copy status-2">2. nginx receives request</text>
+    <text x="0" y="104" class="copy status-3">3. PHP starts Magento</text>
+    <text x="0" y="136" class="copy status-4">4. Magento may read cache or database</text>
+    <text x="0" y="168" class="copy status-5">5. Response comes back and page renders</text>
   </g>
 </svg>
