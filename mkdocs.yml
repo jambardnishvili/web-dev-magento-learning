@@ -1,0 +1,51 @@
+site_name: Web Dev and Magento Learning Site
+site_description: Reference-first notes for web development, PHP, Magento, and runtime/devops.
+repo_name: web-dev-magento-learning
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: amber
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+  - javascripts/mermaid-init.js
+nav:
+  - Home: index.md
+  - Learning Path: learning-path.md
+  - Glossary: glossary.md
+  - Foundations:
+      - Overview: 01-web-foundations/index.md
+      - How the Web Works End to End: 01-web-foundations/how-the-web-works-end-to-end.md
+      - HTTP, Headers, Cookies, and Sessions: 01-web-foundations/http-requests-responses-headers-cookies-sessions.md
+  - PHP:
+      - Overview: 02-php-foundations/index.md
+      - PHP OOP Foundations: 02-php-foundations/php-oop-classes-interfaces-abstract-classes-inheritance-composition.md
+      - Why Interfaces Exist: 02-php-foundations/why-interfaces-exist-and-when-not-to-use-them.md
+  - Magento:
+      - Overview: 03-magento-core/index.md
+      - Magento Request Lifecycle: 03-magento-core/magento-request-lifecycle.md
+  - Runtime/DevOps:
+      - Overview: 04-runtime-devops/index.md
+      - Nginx, PHP-FPM, MySQL, Redis: 04-runtime-devops/nginx-php-fpm-mysql-redis-who-does-what.md
+  - Case Studies:
+      - Overview: 05-debugging-case-studies/index.md
+

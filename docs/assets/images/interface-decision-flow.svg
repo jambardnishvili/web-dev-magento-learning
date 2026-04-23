@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Interface decision flow</title>
+  <desc id="desc">Flow diagram showing when to use an interface, an abstract class, composition, or a concrete class.</desc>
+  <rect width="1200" height="900" fill="#f7fafc"/>
+  <text x="70" y="72" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#17324d">Should this code use an interface?</text>
+  <text x="70" y="110" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#486581">Ask contract questions first. Do not add interfaces by reflex.</text>
+
+  <rect x="420" y="150" width="360" height="110" rx="20" fill="#e8f1ff" stroke="#2b6cb0" stroke-width="3"/>
+  <text x="465" y="200" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#17324d">Do other classes need to rely on</text>
+  <text x="490" y="232" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#17324d">a stable behavior contract?</text>
+
+  <line x1="600" y1="260" x2="600" y2="320" stroke="#2b6cb0" stroke-width="4"/>
+  <line x1="600" y1="320" x2="280" y2="320" stroke="#2b6cb0" stroke-width="4"/>
+  <line x1="600" y1="320" x2="920" y2="320" stroke="#2b6cb0" stroke-width="4"/>
+
+  <text x="235" y="312" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#17324d">No</text>
+  <text x="935" y="312" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#17324d">Yes</text>
+
+  <rect x="120" y="350" width="320" height="110" rx="20" fill="#fff6e8" stroke="#c05621" stroke-width="3"/>
+  <text x="165" y="398" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#17324d">Are you mainly trying to</text>
+  <text x="155" y="430" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#17324d">reuse behavior across classes?</text>
+
+  <rect x="760" y="350" width="320" height="110" rx="20" fill="#edfdf5" stroke="#2f855a" stroke-width="3"/>
+  <text x="815" y="398" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#17324d">Use an interface</text>
+  <text x="798" y="430" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#486581">The boundary matters more than the class.</text>
+
+  <line x1="280" y1="460" x2="280" y2="520" stroke="#c05621" stroke-width="4"/>
+  <line x1="280" y1="520" x2="150" y2="520" stroke="#c05621" stroke-width="4"/>
+  <line x1="280" y1="520" x2="410" y2="520" stroke="#c05621" stroke-width="4"/>
+  <text x="115" y="512" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#17324d">No</text>
+  <text x="422" y="512" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#17324d">Yes</text>
+
+  <rect x="60" y="550" width="270" height="110" rx="20" fill="#ffffff" stroke="#718096" stroke-width="3"/>
+  <text x="115" y="598" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#17324d">Use a concrete class</text>
+  <text x="95" y="630" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#486581">One implementation, local use, no contract.</text>
+
+  <rect x="360" y="550" width="300" height="110" rx="20" fill="#f5edff" stroke="#6b46c1" stroke-width="3"/>
+  <text x="415" y="598" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#17324d">Prefer composition</text>
+  <text x="405" y="630" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#486581">Combine helpers before extending parents.</text>
+
+  <line x1="510" y1="660" x2="510" y2="740" stroke="#6b46c1" stroke-width="4"/>
+  <rect x="360" y="740" width="300" height="110" rx="20" fill="#fffdf2" stroke="#b7791f" stroke-width="3"/>
+  <text x="403" y="788" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#17324d">Abstract class only if</text>
+  <text x="420" y="820" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#486581">shared base code is real and subtype family is real.</text>
+</svg>
+

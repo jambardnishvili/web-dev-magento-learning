@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">PHP OOP comparison</title>
+  <desc id="desc">Comparison of class, interface, abstract class, inheritance, and composition.</desc>
+  <rect width="1200" height="760" fill="#f6f8fb"/>
+  <text x="70" y="70" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#17324d">PHP building blocks at a glance</text>
+  <text x="70" y="108" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#486581">Use contracts for boundaries, base classes sparingly, and composition by default.</text>
+
+  <rect x="70" y="150" width="230" height="210" rx="18" fill="#e8f1ff" stroke="#2b6cb0" stroke-width="3"/>
+  <text x="100" y="195" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#17324d">Class</text>
+  <text x="100" y="235" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Concrete behavior</text>
+  <text x="100" y="268" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Can hold state</text>
+  <text x="100" y="301" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Can be instantiated</text>
+  <text x="100" y="334" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#486581">Use when one real object does the job.</text>
+
+  <rect x="340" y="150" width="230" height="210" rx="18" fill="#fff6e8" stroke="#c05621" stroke-width="3"/>
+  <text x="370" y="195" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#17324d">Interface</text>
+  <text x="370" y="235" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Defines methods only</text>
+  <text x="370" y="268" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">No shared code</text>
+  <text x="370" y="301" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Stable contract</text>
+  <text x="370" y="334" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#486581">Use when callers should depend on behavior.</text>
+
+  <rect x="610" y="150" width="230" height="210" rx="18" fill="#edfdf5" stroke="#2f855a" stroke-width="3"/>
+  <text x="640" y="195" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#17324d">Abstract class</text>
+  <text x="640" y="235" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Partial implementation</text>
+  <text x="640" y="268" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Shared base behavior</text>
+  <text x="640" y="301" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Cannot be instantiated</text>
+  <text x="640" y="334" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#486581">Use only for a real family of related subclasses.</text>
+
+  <rect x="880" y="150" width="250" height="210" rx="18" fill="#f5edff" stroke="#6b46c1" stroke-width="3"/>
+  <text x="910" y="195" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#17324d">Composition</text>
+  <text x="910" y="235" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Object uses helpers</text>
+  <text x="910" y="268" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Flexible collaboration</text>
+  <text x="910" y="301" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#17324d">Low coupling</text>
+  <text x="910" y="334" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#486581">Default choice in modern PHP design.</text>
+
+  <line x1="185" y1="390" x2="185" y2="520" stroke="#2b6cb0" stroke-width="4"/>
+  <line x1="455" y1="390" x2="455" y2="520" stroke="#c05621" stroke-width="4"/>
+  <line x1="725" y1="390" x2="725" y2="520" stroke="#2f855a" stroke-width="4"/>
+  <line x1="1005" y1="390" x2="1005" y2="520" stroke="#6b46c1" stroke-width="4"/>
+
+  <rect x="70" y="520" width="1060" height="165" rx="22" fill="#ffffff" stroke="#cbd5e0" stroke-width="3"/>
+  <text x="100" y="565" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#17324d">Decision rule</text>
+  <text x="100" y="605" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#17324d">Need a stable external contract? Start with an interface.</text>
+  <text x="100" y="638" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#17324d">Need shared base code for a genuine subtype family? Consider an abstract class.</text>
+  <text x="100" y="671" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#17324d">Need behavior reuse without tight coupling? Prefer composition.</text>
+</svg>
+
