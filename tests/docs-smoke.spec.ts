@@ -55,6 +55,6 @@ test("home page links to key learning sections", async ({ page }) => {
 test("how the web works page shows explainer assets", async ({ page }) => {
   await page.goto("/01-web-foundations/how-the-web-works-end-to-end/");
 
-  await expect(page.getByRole("img", { name: /quick explainer animation/i })).toBeVisible();
+  await expect(page.locator(".request-explainer")).toBeVisible();
   await expect(page.locator(".mermaid")).toBeVisible();
 });

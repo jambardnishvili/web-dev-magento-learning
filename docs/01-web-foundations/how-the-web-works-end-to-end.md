@@ -25,7 +25,69 @@ flowchart TB
 
 ## Quick visual walkthrough
 
-![Quick explainer animation showing how a browser request moves through the web server, PHP, Magento, data storage, and back to the browser.](../assets/animations/web-request-flow.svg){ .explainer-embed }
+<div class="request-explainer" aria-label="Animated explainer showing how a browser request moves through the browser, web server, PHP, Magento, data storage, and back to the browser.">
+  <div class="request-explainer__stage">
+    <div class="request-explainer__browser">
+      <div class="request-explainer__browser-bar">
+        <span></span><span></span><span></span>
+        <div class="request-explainer__browser-url">shop.example.com/product</div>
+      </div>
+      <div class="request-explainer__browser-body">
+        <div class="request-explainer__hero">
+          <strong>Product page</strong>
+          <span>Customer opens item</span>
+        </div>
+        <div class="request-explainer__line"></div>
+        <div class="request-explainer__line short"></div>
+        <div class="request-explainer__line"></div>
+        <div class="request-explainer__button">Add to cart</div>
+        <div class="request-explainer__rendered">
+          <strong>Page rendered</strong>
+          <span>HTML returned</span>
+          <span>CSS and JS applied</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="request-explainer__flow">
+      <div class="request-explainer__card server">
+        <strong>Web server</strong>
+        <span>Receives request first</span>
+        <span>Can serve static files</span>
+      </div>
+      <div class="request-explainer__card php">
+        <strong>PHP</strong>
+        <span>Runs PHP code</span>
+        <span>Starts Magento</span>
+      </div>
+      <div class="request-explainer__card magento">
+        <strong>Magento app</strong>
+        <span>Matches route</span>
+        <span>Builds response</span>
+      </div>
+      <div class="request-explainer__data-row">
+        <div class="request-explainer__card fast">
+          <strong>Fast data</strong>
+          <span>Cache / session</span>
+        </div>
+        <div class="request-explainer__card db">
+          <strong>Database</strong>
+          <span>Durable data</span>
+        </div>
+      </div>
+      <div class="request-explainer__request-chip">GET /product</div>
+      <div class="request-explainer__response-chip">HTML response</div>
+    </div>
+  </div>
+
+  <div class="request-explainer__steps">
+    <div>1. Browser asks for page</div>
+    <div>2. Web server receives request</div>
+    <div>3. PHP starts Magento</div>
+    <div>4. Magento loads needed data</div>
+    <div>5. Response returns and page renders</div>
+  </div>
+</div>
 
 This loop is meant to make the order feel familiar. It is not trying to teach every technical detail at once.
 
