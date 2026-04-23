@@ -25,9 +25,7 @@ flowchart TB
 
 ## Quick visual walkthrough
 
-<object class="explainer-embed" data="../assets/animations/web-request-flow.svg" type="image/svg+xml">
-  Quick explainer animation showing how a browser request moves through the web server, PHP, Magento, data storage, and back to the browser.
-</object>
+![Quick explainer animation showing how a browser request moves through the web server, PHP, Magento, data storage, and back to the browser.](../assets/animations/web-request-flow.svg){ .explainer-embed }
 
 This loop is meant to make the order feel familiar. It is not trying to teach every technical detail at once.
 
