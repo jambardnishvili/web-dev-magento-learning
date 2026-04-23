@@ -37,14 +37,14 @@ flowchart TB
     </div>
   </div>
 
-  <div class="request-explainer__layout">
+  <div class="request-explainer__stage">
     <div class="request-explainer__browser">
       <div class="request-explainer__browser-bar">
         <span></span><span></span><span></span>
         <div class="request-explainer__browser-url">shop.example.com/product</div>
       </div>
       <div class="request-explainer__browser-body">
-        <div class="request-explainer__hero">
+        <div class="request-explainer__hero request-explainer__hero--loading">
           <strong>Product page</strong>
           <span>Customer opens item</span>
         </div>
@@ -60,55 +60,64 @@ flowchart TB
       </div>
     </div>
 
-    <div class="request-explainer__pipeline">
-      <div class="request-explainer__progress">
-        <div class="request-explainer__progress-line"></div>
-      </div>
-
-      <div class="request-explainer__step server" style="background:#ffffff;border:2px solid #0284c7;border-radius:16px;padding:14px 16px;box-shadow:0 6px 18px rgba(15,23,42,0.05);">
-        <div class="request-explainer__step-number" style="background:#e0f2fe;">1</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
+    <div class="request-explainer__active-card">
+      <div class="request-explainer__card-state server">
+        <div class="request-explainer__card-top"></div>
+        <div class="request-explainer__card-body">
+          <div class="request-explainer__card-number">1</div>
           <strong>Web server</strong>
-          <span>Receives request first and serves static files if possible.</span>
+          <span>Receives the request first and serves static files if possible.</span>
         </div>
       </div>
 
-      <div class="request-explainer__step php" style="background:#ffffff;border:2px solid #7c3aed;border-radius:16px;padding:14px 16px;box-shadow:0 6px 18px rgba(15,23,42,0.05);">
-        <div class="request-explainer__step-number" style="background:#ede9fe;">2</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
+      <div class="request-explainer__card-state php">
+        <div class="request-explainer__card-top"></div>
+        <div class="request-explainer__card-body">
+          <div class="request-explainer__card-number">2</div>
           <strong>PHP</strong>
           <span>Runs PHP code and starts Magento.</span>
         </div>
       </div>
 
-      <div class="request-explainer__step magento" style="background:#ffffff;border:2px solid #d97706;border-radius:16px;padding:14px 16px;box-shadow:0 6px 18px rgba(15,23,42,0.05);">
-        <div class="request-explainer__step-number" style="background:#fef3c7;">3</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
+      <div class="request-explainer__card-state magento">
+        <div class="request-explainer__card-top"></div>
+        <div class="request-explainer__card-body">
+          <div class="request-explainer__card-number">3</div>
           <strong>Magento app</strong>
-          <span>Matches route, runs logic, prepares response.</span>
+          <span>Matches route, runs logic, and prepares a response.</span>
         </div>
       </div>
 
-      <div class="request-explainer__step data" style="background:#ffffff;border:2px solid #16a34a;border-radius:16px;padding:14px 16px;box-shadow:0 6px 18px rgba(15,23,42,0.05);">
-        <div class="request-explainer__step-number" style="background:#ecfdf3;">4</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
+      <div class="request-explainer__card-state data">
+        <div class="request-explainer__card-top"></div>
+        <div class="request-explainer__card-body">
+          <div class="request-explainer__card-number">4</div>
           <strong>Data layer</strong>
-          <span>May read cache/session or durable database data.</span>
-          <div class="request-explainer__data-pills" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;">
-            <span class="fast" style="background:#ecfdf3;border:1px solid #16a34a;border-radius:999px;color:#166534;font-size:12px;font-weight:700;padding:4px 10px;">Fast data</span>
-            <span class="db" style="background:#fef2f2;border:1px solid #dc2626;border-radius:999px;color:#991b1b;font-size:12px;font-weight:700;padding:4px 10px;">Database</span>
+          <span>Magento may read fast cache/session data or durable database data.</span>
+          <div class="request-explainer__data-pills">
+            <span class="fast">Fast data</span>
+            <span class="db">Database</span>
           </div>
+        </div>
+      </div>
+
+      <div class="request-explainer__card-state response">
+        <div class="request-explainer__card-top"></div>
+        <div class="request-explainer__card-body">
+          <div class="request-explainer__card-number">5</div>
+          <strong>Response</strong>
+          <span>HTML returns to the browser and the page renders.</span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="request-explainer__steps">
-    <div>Browser asks for page</div>
-    <div>Web server receives request</div>
-    <div>PHP starts Magento</div>
-    <div>Magento loads needed data</div>
-    <div>Response returns and page renders</div>
+    <div class="step-1">1. Browser asks for page</div>
+    <div class="step-2">2. Web server receives request</div>
+    <div class="step-3">3. PHP starts Magento</div>
+    <div class="step-4">4. Magento loads needed data</div>
+    <div class="step-5">5. Response returns and page renders</div>
   </div>
 </div>
 
