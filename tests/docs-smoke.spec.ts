@@ -1,7 +1,8 @@
 import { expect, test } from "@playwright/test";
 
 const pages = [
-  { path: "/", heading: "Web Dev and Magento Learning Site" }
+  { path: "/", heading: "Web Dev and Magento Learning Site" },
+  { path: "/when-you-open-a-website-who-is-talking/", heading: "When You Open a Website, Who Is Talking?" }
 ];
 
 for (const page of pages) {
@@ -22,8 +23,25 @@ for (const page of pages) {
   });
 }
 
-test("home page shows rewrite placeholder", async ({ page }) => {
+test("home page links to the first lesson", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByText("Current lesson pages removed.")).toBeVisible();
-  await expect(page.getByText("rebuild from scratch around simpler visual-first lessons")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Start with Lesson 1/i })).toBeVisible();
 });
+
+for (const width of [860, 1100, 1440]) {
+  test(`lesson scene stays inside the content column at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1400 });
+    await page.goto("/when-you-open-a-website-who-is-talking/");
+
+    const scene = page.locator(".conversation-scene");
+    await expect(scene).toBeVisible();
+
+    const hasOverflow = await scene.evaluate((node) => node.scrollWidth > node.clientWidth + 1);
+    expect(hasOverflow).toBeFalsy();
+
+    const browserCard = page.locator(".conversation-scene__card--browser");
+    const serverCard = page.locator(".conversation-scene__card--server");
+    await expect(browserCard).toBeVisible();
+    await expect(serverCard).toBeVisible();
+  });
+}

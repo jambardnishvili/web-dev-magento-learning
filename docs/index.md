@@ -1,5 +1,7 @@
 # Web Dev and Magento Learning Site
 
-Current lesson pages removed.
+This site is being rebuilt around small visual lessons.
 
-Next step: rebuild from scratch around simpler visual-first lessons.
+Each lesson will teach one idea at a time, using the same running story: a person opens a product page in the browser.
+
+[Start with Lesson 1: When you open a website, who is talking?](when-you-open-a-website-who-is-talking.md){ .lesson-link }

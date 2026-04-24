@@ -7,434 +7,280 @@
   max-width: none;
 }
 
-.md-typeset .mermaid {
-  text-align: center;
+.md-typeset .lesson-link {
+  display: inline-block;
+  margin-top: 0.5rem;
 }
 
-.md-typeset .mermaid svg {
-  height: auto;
-  max-width: 100%;
-}
-
-.md-typeset .explainer-embed {
-  background: #f8fafc;
-  border: 1px solid #d9e2ec;
-  border-radius: 16px;
-  display: block;
-  margin: 1rem auto 1.5rem;
-  max-width: 980px;
-  width: 100%;
-}
-
-.md-typeset .request-explainer {
-  background: #f8fafc;
-  border: 1px solid #d9e2ec;
-  border-radius: 20px;
-  margin: 1rem auto 1.5rem;
-  max-width: 980px;
+.md-typeset .conversation-scene {
+  --scene-bg: linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+  --scene-border: #d7e3f2;
+  --ink: #17324d;
+  --muted: #4f6b8a;
+  --browser: #2563eb;
+  --server: #0f766e;
+  --request: #f59e0b;
+  --response: #14b8a6;
+  background: var(--scene-bg);
+  border: 1px solid var(--scene-border);
+  border-radius: 24px;
+  margin: 1rem 0 1.5rem;
   overflow: hidden;
   padding: 1.25rem;
 }
 
-.md-typeset .request-explainer__header {
-  align-items: flex-start;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
+.md-typeset .conversation-scene__eyebrow {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.md-typeset .conversation-scene__title {
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+}
+
+.md-typeset .conversation-scene__intro {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  max-width: 48rem;
+}
+
+.md-typeset .conversation-scene__stage {
+  align-items: center;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(260px, 1fr) minmax(140px, 0.7fr) minmax(260px, 1fr);
   margin-bottom: 1rem;
 }
 
-.md-typeset .request-explainer__header > div:first-child {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.md-typeset .request-explainer__header strong {
-  color: #17324d;
-  font-size: 1.1rem;
-}
-
-.md-typeset .request-explainer__header span {
-  color: #486581;
-  font-size: 0.9rem;
-}
-
-.md-typeset .request-explainer__badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.md-typeset .request-explainer__badges span {
-  background: #fff7ed;
-  border: 1px solid #fdba74;
-  border-radius: 999px;
-  color: #8a4b00;
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 0.35rem 0.7rem;
-}
-
-.md-typeset .request-explainer__stage {
-  align-items: stretch;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: minmax(280px, 360px) 1fr;
-}
-
-.md-typeset .request-explainer__browser {
+.md-typeset .conversation-scene__card {
   background: #fff;
-  border: 2px solid #2b6cb0;
-  border-radius: 18px;
-  min-height: 340px;
+  border: 2px solid #c9d8ea;
+  border-radius: 22px;
+  box-shadow: 0 10px 24px rgba(34, 62, 92, 0.08);
+  min-height: 290px;
   overflow: hidden;
   position: relative;
 }
 
-.md-typeset .request-explainer__browser-bar {
-  align-items: center;
-  background: #e8f1ff;
-  border-bottom: 1px solid #bfd3f2;
-  display: flex;
-  gap: 0.5rem;
-  padding: 0.7rem 0.8rem;
+.md-typeset .conversation-scene__card--browser {
+  border-color: color-mix(in srgb, var(--browser) 50%, white);
 }
 
-.md-typeset .request-explainer__browser-bar span {
+.md-typeset .conversation-scene__card--server {
+  border-color: color-mix(in srgb, var(--server) 55%, white);
+}
+
+.md-typeset .conversation-scene__window-bar {
+  align-items: center;
+  background: #eaf2ff;
+  border-bottom: 1px solid #cfdef3;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 0.9rem;
+}
+
+.md-typeset .conversation-scene__window-bar span {
   background: #fff;
   border-radius: 999px;
   display: inline-block;
-  height: 0.7rem;
-  width: 0.7rem;
+  height: 0.72rem;
+  width: 0.72rem;
 }
 
-.md-typeset .request-explainer__browser-url {
+.md-typeset .conversation-scene__url {
   background: #fff;
-  border: 1px solid #cbd5e0;
+  border: 1px solid #c7d5e6;
   border-radius: 999px;
-  color: #486581;
-  font-size: 0.76rem;
-  margin-left: 0.4rem;
+  color: #4c6581;
+  font-size: 0.8rem;
+  margin-left: 0.35rem;
   overflow: hidden;
-  padding: 0.28rem 0.7rem;
+  padding: 0.3rem 0.8rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.md-typeset .request-explainer__browser-body {
+.md-typeset .conversation-scene__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: calc(100% - 56px);
+  padding: 1.1rem;
+}
+
+.md-typeset .conversation-scene__hero {
+  background: #eff6ff;
+  border-radius: 18px;
   padding: 1rem;
+}
+
+.md-typeset .conversation-scene__card--server .conversation-scene__hero {
+  background: #ecfeff;
+}
+
+.md-typeset .conversation-scene__hero strong {
+  color: var(--ink);
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.md-typeset .conversation-scene__hero span,
+.md-typeset .conversation-scene__line-label,
+.md-typeset .conversation-scene__pill,
+.md-typeset .conversation-scene__caption {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.md-typeset .conversation-scene__line {
+  background: #dbeafe;
+  border-radius: 999px;
+  height: 0.72rem;
+}
+
+.md-typeset .conversation-scene__line--short {
+  width: 72%;
+}
+
+.md-typeset .conversation-scene__line--mid {
+  width: 86%;
+}
+
+.md-typeset .conversation-scene__pill {
+  align-self: flex-start;
+  background: #dbeafe;
+  border-radius: 999px;
+  margin-top: auto;
+  padding: 0.45rem 0.9rem;
+}
+
+.md-typeset .conversation-scene__bridge {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 290px;
   position: relative;
 }
 
-.md-typeset .request-explainer__hero {
-  background: #eff6ff;
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  margin-bottom: 1rem;
-  padding: 0.9rem;
-}
-
-.md-typeset .request-explainer__hero strong,
-.md-typeset .request-explainer__rendered strong {
-  color: #17324d;
-  font-size: 1rem;
-}
-
-.md-typeset .request-explainer__hero span,
-.md-typeset .request-explainer__rendered span,
-.md-typeset .request-explainer__steps div {
-  color: #486581;
-  font-size: 0.86rem;
-}
-
-.md-typeset .request-explainer__hero--loading {
-  animation: browser-loading 10s infinite;
-}
-
-.md-typeset .request-explainer__line {
-  background: #dbeafe;
+.md-typeset .conversation-scene__track {
+  background: linear-gradient(90deg, #bfd4f6 0%, #b7e5df 100%);
   border-radius: 999px;
-  height: 0.7rem;
-  margin-bottom: 0.7rem;
+  height: 10px;
   width: 100%;
 }
 
-.md-typeset .request-explainer__line.short {
-  width: 74%;
-}
-
-.md-typeset .request-explainer__button {
-  background: #dbeafe;
-  border-radius: 999px;
-  color: #486581;
-  display: inline-block;
-  font-size: 0.8rem;
-  margin-top: 0.6rem;
-  padding: 0.45rem 0.8rem;
-}
-
-.md-typeset .request-explainer__rendered {
-  animation: browser-render 10s infinite;
-  background: #dcfce7;
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  inset: 1rem;
-  justify-content: center;
-  opacity: 0;
-  padding: 0.9rem;
-  position: absolute;
-}
-
-.md-typeset .request-explainer__active-card {
-  min-height: 340px;
-  position: relative;
-}
-
-.md-typeset .request-explainer__card-state {
-  background: #fff;
-  border: 2px solid #d9e2ec;
-  border-radius: 18px;
-  inset: 0;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  transform: translateY(8px);
-  animation: card-cycle 10s infinite;
-}
-
-.md-typeset .request-explainer__card-state.server {
-  border-color: #0284c7;
-  animation-delay: 0s;
-}
-
-.md-typeset .request-explainer__card-state.php {
-  border-color: #7c3aed;
-  animation-delay: 2s;
-}
-
-.md-typeset .request-explainer__card-state.magento {
-  border-color: #d97706;
-  animation-delay: 4s;
-}
-
-.md-typeset .request-explainer__card-state.data {
-  border-color: #16a34a;
-  animation-delay: 6s;
-}
-
-.md-typeset .request-explainer__card-state.response {
-  border-color: #d97706;
-  animation-delay: 8s;
-}
-
-.md-typeset .request-explainer__card-top {
-  height: 1.6rem;
-}
-
-.md-typeset .request-explainer__card-state.server .request-explainer__card-top {
-  background: #e0f2fe;
-}
-
-.md-typeset .request-explainer__card-state.php .request-explainer__card-top {
-  background: #ede9fe;
-}
-
-.md-typeset .request-explainer__card-state.magento .request-explainer__card-top,
-.md-typeset .request-explainer__card-state.response .request-explainer__card-top {
-  background: #fef3c7;
-}
-
-.md-typeset .request-explainer__card-state.data .request-explainer__card-top {
-  background: #ecfdf3;
-}
-
-.md-typeset .request-explainer__card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  padding: 1.2rem 1.3rem;
-}
-
-.md-typeset .request-explainer__card-body strong {
-  color: #17324d;
-  font-size: 1.25rem;
-}
-
-.md-typeset .request-explainer__card-body span {
-  color: #486581;
-  font-size: 0.95rem;
-}
-
-.md-typeset .request-explainer__card-number {
+.md-typeset .conversation-scene__bubble {
   align-items: center;
-  background: #eff6ff;
+  animation: lesson-bubble-cycle 7s ease-in-out infinite;
   border-radius: 999px;
-  color: #17324d;
+  box-shadow: 0 10px 20px rgba(32, 53, 82, 0.18);
+  color: #fff;
   display: inline-flex;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 700;
-  height: 2rem;
-  justify-content: center;
-  width: 2rem;
+  left: 0;
+  line-height: 1;
+  padding: 0.7rem 0.95rem;
+  position: absolute;
+  top: calc(50% - 1.4rem);
+  white-space: nowrap;
 }
 
-.md-typeset .request-explainer__card-state.server .request-explainer__card-number {
-  background: #e0f2fe;
+.md-typeset .conversation-scene__bubble--request {
+  background: var(--request);
 }
 
-.md-typeset .request-explainer__card-state.php .request-explainer__card-number {
-  background: #ede9fe;
+.md-typeset .conversation-scene__bubble--response {
+  animation-delay: 3.5s;
+  background: var(--response);
+  opacity: 0;
 }
 
-.md-typeset .request-explainer__card-state.magento .request-explainer__card-number,
-.md-typeset .request-explainer__card-state.response .request-explainer__card-number {
-  background: #fef3c7;
-}
-
-.md-typeset .request-explainer__card-state.data .request-explainer__card-number {
-  background: #ecfdf3;
-}
-
-.md-typeset .request-explainer__data-pills {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.55rem;
-}
-
-.md-typeset .request-explainer__data-pills span {
-  border: 1px solid transparent;
-  border-radius: 999px;
-  font-size: 0.76rem;
-  font-weight: 700;
-  padding: 0.28rem 0.6rem;
-}
-
-.md-typeset .request-explainer__data-pills .fast {
-  background: #ecfdf3;
-  border-color: #16a34a;
-  color: #166534;
-}
-
-.md-typeset .request-explainer__data-pills .db {
-  background: #fef2f2;
-  border-color: #dc2626;
-  color: #991b1b;
-}
-
-.md-typeset .request-explainer__timeline {
-  border-top: 1px solid #d9e2ec;
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
+.md-typeset .conversation-scene__caption {
   margin-top: 1rem;
-  padding-top: 1rem;
+  text-align: center;
 }
 
-.md-typeset .request-explainer__timeline span {
-  background: #ffffff;
-  border: 1px solid #d9e2ec;
-  border-radius: 999px;
-  color: #486581;
-  font-size: 0.82rem;
-  padding: 0.35rem 0.7rem;
+.md-typeset .conversation-scene__notes {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.md-typeset .request-explainer__timeline .step-1 {
-  animation: step-1 10s infinite;
+.md-typeset .conversation-scene__note {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #d7e3f2;
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
 }
 
-.md-typeset .request-explainer__timeline .step-2 {
-  animation: step-2 10s infinite;
+.md-typeset .conversation-scene__note strong {
+  color: var(--ink);
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
 }
 
-.md-typeset .request-explainer__timeline .step-3 {
-  animation: step-3 10s infinite;
+.md-typeset .conversation-scene__note span {
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
-.md-typeset .request-explainer__timeline .step-4 {
-  animation: step-4 10s infinite;
-}
-
-.md-typeset .request-explainer__timeline .step-5 {
-  animation: step-5 10s infinite;
-}
-
-@keyframes browser-loading {
-  0%, 79% { opacity: 1; }
-  82%, 100% { opacity: 0.35; }
-}
-
-@keyframes browser-render {
-  0%, 79% { opacity: 0; }
-  82%, 100% { opacity: 1; }
-}
-
-@keyframes card-cycle {
-  0%, 18% { opacity: 1; transform: translateY(0); }
-  20%, 100% { opacity: 0; transform: translateY(8px); }
-}
-
-@keyframes step-1 {
-  0%, 18% { color: #17324d; font-weight: 700; }
-  20%, 100% { color: #486581; font-weight: 400; }
-}
-
-@keyframes step-2 {
-  0%, 20% { color: #486581; font-weight: 400; }
-  22%, 38% { color: #17324d; font-weight: 700; }
-  40%, 100% { color: #486581; font-weight: 400; }
-}
-
-@keyframes step-3 {
-  0%, 40% { color: #486581; font-weight: 400; }
-  42%, 58% { color: #17324d; font-weight: 700; }
-  60%, 100% { color: #486581; font-weight: 400; }
-}
-
-@keyframes step-4 {
-  0%, 60% { color: #486581; font-weight: 400; }
-  62%, 78% { color: #17324d; font-weight: 700; }
-  80%, 100% { color: #486581; font-weight: 400; }
-}
-
-@keyframes step-5 {
-  0%, 80% { color: #486581; font-weight: 400; }
-  82%, 100% { color: #17324d; font-weight: 700; }
-}
-
-@media (max-width: 1200px) {
-  .md-typeset .request-explainer__header {
-    flex-direction: column;
+@keyframes lesson-bubble-cycle {
+  0%,
+  10% {
+    opacity: 0;
+    transform: translateX(0) scale(0.92);
   }
 
-  .md-typeset .request-explainer__stage {
+  18%,
+  42% {
+    opacity: 1;
+    transform: translateX(calc(100% - 7.4rem)) scale(1);
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+    transform: translateX(calc(100% - 7.4rem)) scale(0.95);
+  }
+}
+
+@media (max-width: 1100px) {
+  .md-typeset .conversation-scene__stage {
     grid-template-columns: 1fr;
   }
 
-  .md-typeset .request-explainer__browser {
-    min-height: 320px;
+  .md-typeset .conversation-scene__bridge {
+    min-height: 120px;
+    order: 2;
   }
 
-  .md-typeset .request-explainer__active-card {
-    min-height: 220px;
+  .md-typeset .conversation-scene__card--server {
+    order: 3;
   }
 }
 
-@media (max-width: 760px) {
-  .md-typeset .request-explainer__badges {
-    width: 100%;
+@media (max-width: 900px) {
+  .md-typeset .conversation-scene {
+    padding: 1rem;
   }
 
-  .md-typeset .request-explainer__badges span {
-    width: fit-content;
+  .md-typeset .conversation-scene__notes {
+    grid-template-columns: 1fr;
   }
 
-  .md-typeset .request-explainer__data-pills {
-    flex-wrap: wrap;
+  .md-typeset .conversation-scene__bubble {
+    font-size: 0.8rem;
   }
 }

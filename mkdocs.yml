@@ -32,3 +32,4 @@ extra_css:
   - stylesheets/extra.css
 nav:
   - Home: index.md
+  - Lesson 1: when-you-open-a-website-who-is-talking.md
