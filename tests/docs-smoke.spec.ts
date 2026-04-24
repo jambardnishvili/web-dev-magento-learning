@@ -45,3 +45,15 @@ for (const width of [860, 1100, 1440]) {
     await expect(serverCard).toBeVisible();
   });
 }
+
+test("lesson scene fits above the fold on first load", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/when-you-open-a-website-who-is-talking/");
+
+  const scene = page.locator(".conversation-scene");
+  await expect(scene).toBeVisible();
+
+  const box = await scene.boundingBox();
+  expect(box).not.toBeNull();
+  expect((box?.y ?? 0) + (box?.height ?? 0)).toBeLessThanOrEqual(820);
+});

@@ -24,41 +24,16 @@
   background: var(--scene-bg);
   border: 1px solid var(--scene-border);
   border-radius: 24px;
-  margin: 1rem 0 1.5rem;
+  margin: 0.5rem 0 1rem;
   overflow: hidden;
-  padding: 1.25rem;
-}
-
-.md-typeset .conversation-scene__eyebrow {
-  color: var(--muted);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.25rem;
-  text-transform: uppercase;
-}
-
-.md-typeset .conversation-scene__title {
-  color: var(--ink);
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.35rem;
-}
-
-.md-typeset .conversation-scene__intro {
-  color: var(--muted);
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  max-width: 48rem;
+  padding: 0.85rem;
 }
 
 .md-typeset .conversation-scene__stage {
   align-items: center;
   display: grid;
-  gap: 1.25rem;
+  gap: 0.85rem;
   grid-template-columns: minmax(260px, 1fr) minmax(140px, 0.7fr) minmax(260px, 1fr);
-  margin-bottom: 1rem;
 }
 
 .md-typeset .conversation-scene__card {
@@ -66,7 +41,7 @@
   border: 2px solid #c9d8ea;
   border-radius: 22px;
   box-shadow: 0 10px 24px rgba(34, 62, 92, 0.08);
-  min-height: 290px;
+  min-height: 214px;
   overflow: hidden;
   position: relative;
 }
@@ -112,15 +87,15 @@
 .md-typeset .conversation-scene__panel {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.65rem;
   height: calc(100% - 56px);
-  padding: 1.1rem;
+  padding: 0.75rem;
 }
 
 .md-typeset .conversation-scene__hero {
   background: #eff6ff;
   border-radius: 18px;
-  padding: 1rem;
+  padding: 0.75rem 0.85rem;
 }
 
 .md-typeset .conversation-scene__card--server .conversation-scene__hero {
@@ -130,8 +105,8 @@
 .md-typeset .conversation-scene__hero strong {
   color: var(--ink);
   display: block;
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
 }
 
 .md-typeset .conversation-scene__hero span,
@@ -146,7 +121,7 @@
   background: #f8fbff;
   border: 1px solid #dce7f5;
   border-radius: 18px;
-  min-height: 190px;
+  min-height: 112px;
   overflow: hidden;
   position: relative;
 }
@@ -154,23 +129,23 @@
 .md-typeset .conversation-scene__browser-state {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.55rem;
   inset: 0;
   opacity: 0;
-  padding: 1rem;
+  padding: 0.75rem;
   position: absolute;
 }
 
 .md-typeset .conversation-scene__browser-state--idle {
-  animation: browser-idle 8s infinite;
+  animation: browser-idle 6s infinite;
 }
 
 .md-typeset .conversation-scene__browser-state--loading {
-  animation: browser-loading-state 8s infinite;
+  animation: browser-loading-state 6s infinite;
 }
 
 .md-typeset .conversation-scene__browser-state--rendered {
-  animation: browser-rendered 8s infinite;
+  animation: browser-rendered 6s infinite;
 }
 
 .md-typeset .conversation-scene__product-preview,
@@ -179,42 +154,41 @@
   border: 1px solid #d9e4f3;
   border-radius: 16px;
   display: grid;
-  gap: 0.85rem;
-  grid-template-columns: 72px 1fr;
-  padding: 0.9rem;
+  gap: 0.6rem;
+  grid-template-columns: 48px 1fr;
+  padding: 0.65rem;
 }
 
 .md-typeset .conversation-scene__render-card {
   align-items: center;
   background: #effbf7;
   border-color: #bfe7dc;
-  gap: 0.7rem;
-  grid-template-columns: 72px 1fr;
-  padding: 0.75rem;
+  grid-template-columns: 48px 1fr;
+  padding: 0.62rem;
 }
 
 .md-typeset .conversation-scene__thumb {
   background: linear-gradient(135deg, #dceafe 0%, #bfd6f5 100%);
   border-radius: 14px;
-  min-height: 72px;
+  min-height: 48px;
 }
 
 .md-typeset .conversation-scene__thumb--full {
-  min-height: 72px;
+  min-height: 48px;
 }
 
 .md-typeset .conversation-scene__copy strong,
 .md-typeset .conversation-scene__render-card strong {
   color: var(--ink);
   display: block;
-  font-size: 0.98rem;
-  margin-bottom: 0.18rem;
+  font-size: 0.88rem;
+  margin-bottom: 0.12rem;
 }
 
 .md-typeset .conversation-scene__copy span,
 .md-typeset .conversation-scene__render-card span {
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.78rem;
 }
 
 .md-typeset .conversation-scene__render-copy {
@@ -223,21 +197,21 @@
 
 .md-typeset .conversation-scene__render-card .conversation-scene__pill {
   display: inline-flex;
-  font-size: 0.8rem;
-  margin-top: 0.45rem;
-  padding: 0.35rem 0.75rem;
+  font-size: 0.7rem;
+  margin-top: 0.28rem;
+  padding: 0.24rem 0.56rem;
 }
 
 .md-typeset .conversation-scene__click-target {
   align-self: flex-start;
-  animation: click-pulse 8s infinite;
+  animation: click-pulse 6s infinite;
   background: #dbeafe;
   border-radius: 999px;
   color: #31557c;
-  font-size: 0.86rem;
+  font-size: 0.74rem;
   font-weight: 700;
   margin-top: auto;
-  padding: 0.5rem 0.95rem;
+  padding: 0.35rem 0.64rem;
 }
 
 .md-typeset .conversation-scene__loading-pill {
@@ -246,15 +220,15 @@
   border: 1px solid #fdba74;
   border-radius: 999px;
   color: #9a5a00;
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  padding: 0.35rem 0.7rem;
+  padding: 0.24rem 0.5rem;
 }
 
 .md-typeset .conversation-scene__line {
   background: #dbeafe;
   border-radius: 999px;
-  height: 0.72rem;
+  height: 0.58rem;
 }
 
 .md-typeset .conversation-scene__line--short {
@@ -269,7 +243,7 @@
   align-self: flex-start;
   background: #dbeafe;
   border-radius: 999px;
-  padding: 0.45rem 0.9rem;
+  padding: 0.3rem 0.6rem;
 }
 
 .md-typeset .conversation-scene__spinner {
@@ -277,29 +251,29 @@
   border: 3px solid #dce7f6;
   border-radius: 999px;
   border-top-color: #5c8ee9;
-  height: 30px;
+  height: 20px;
   margin-top: auto;
-  width: 30px;
+  width: 20px;
 }
 
 .md-typeset .conversation-scene__bridge {
   align-items: center;
   display: flex;
   justify-content: center;
-  min-height: 290px;
+  min-height: 214px;
   position: relative;
 }
 
 .md-typeset .conversation-scene__track {
   background: linear-gradient(90deg, #bfd4f6 0%, #b7e5df 100%);
   border-radius: 999px;
-  height: 10px;
+  height: 8px;
   width: 100%;
   position: relative;
 }
 
 .md-typeset .conversation-scene__track::after {
-  animation: bridge-glow 8s ease-in-out infinite;
+  animation: bridge-glow 6s ease-in-out infinite;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0) 100%);
   content: "";
   inset: -6px 0;
@@ -313,34 +287,33 @@
   box-shadow: 0 10px 20px rgba(32, 53, 82, 0.18);
   color: #fff;
   display: inline-flex;
-  font-size: 0.86rem;
+  font-size: 0.74rem;
   font-weight: 700;
   left: 0;
   line-height: 1;
-  padding: 0.7rem 0.95rem;
+  padding: 0.48rem 0.72rem;
   position: absolute;
   top: calc(50% - 1.4rem);
   white-space: nowrap;
 }
 
 .md-typeset .conversation-scene__bubble--request {
-  animation: request-bubble 8s ease-in-out infinite;
+  animation: request-bubble 6s ease-in-out infinite;
   background: var(--request);
 }
 
 .md-typeset .conversation-scene__bubble--response {
-  animation: response-bubble 8s ease-in-out infinite;
+  animation: response-bubble 6s ease-in-out infinite;
   background: var(--response);
 }
 
 .md-typeset .conversation-scene__caption {
-  margin-top: 1rem;
   text-align: center;
 }
 
 .md-typeset .conversation-scene__server-flow {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.5rem;
   position: relative;
 }
 
@@ -349,7 +322,7 @@
   border: 1px solid #cfe2df;
   border-radius: 16px;
   opacity: 0.45;
-  padding: 0.9rem 1rem 0.9rem 1.15rem;
+  padding: 0.58rem 0.76rem 0.58rem 0.9rem;
   position: relative;
   transform: translateY(4px);
 }
@@ -358,49 +331,49 @@
   background: #a8c6c2;
   border-radius: 999px;
   content: "";
-  height: 10px;
-  left: 0.95rem;
+  height: 8px;
+  left: 0.75rem;
   position: absolute;
-  top: 1.25rem;
-  width: 10px;
+  top: 0.82rem;
+  width: 8px;
 }
 
 .md-typeset .conversation-scene__server-step strong {
   color: var(--ink);
   display: block;
-  font-size: 0.94rem;
-  margin-left: 0.9rem;
-  margin-bottom: 0.15rem;
+  font-size: 0.8rem;
+  margin-left: 0.62rem;
+  margin-bottom: 0.1rem;
 }
 
 .md-typeset .conversation-scene__server-step span {
   color: var(--muted);
   display: block;
-  font-size: 0.86rem;
-  margin-left: 0.9rem;
+  font-size: 0.72rem;
+  margin-left: 0.62rem;
 }
 
 .md-typeset .conversation-scene__server-step--receive {
-  animation: server-step-receive 8s infinite;
+  animation: server-step-receive 6s infinite;
 }
 
 .md-typeset .conversation-scene__server-step--prepare {
-  animation: server-step-prepare 8s infinite;
+  animation: server-step-prepare 6s infinite;
 }
 
 .md-typeset .conversation-scene__server-step--send {
-  animation: server-step-send 8s infinite;
+  animation: server-step-send 6s infinite;
 }
 
 .md-typeset .conversation-scene__server-light {
-  animation: server-light 8s infinite;
+  animation: server-light 6s infinite;
   background: radial-gradient(circle, rgba(20, 184, 166, 0.95) 0%, rgba(20, 184, 166, 0.18) 55%, rgba(20, 184, 166, 0) 72%);
   border-radius: 999px;
-  height: 84px;
+  height: 56px;
   position: absolute;
-  right: -8px;
-  top: 18px;
-  width: 84px;
+  right: -4px;
+  top: 8px;
+  width: 56px;
 }
 
 .md-typeset .conversation-scene__notes {
@@ -430,11 +403,11 @@
 
 @keyframes browser-idle {
   0%,
-  18% {
+  10% {
     opacity: 1;
   }
 
-  24%,
+  16%,
   100% {
     opacity: 0;
   }
@@ -442,25 +415,25 @@
 
 @keyframes browser-loading-state {
   0%,
-  20%,
-  76%,
+  12%,
+  64%,
   100% {
     opacity: 0;
   }
 
-  28%,
-  68% {
+  16%,
+  58% {
     opacity: 1;
   }
 }
 
 @keyframes browser-rendered {
   0%,
-  72% {
+  60% {
     opacity: 0;
   }
 
-  80%,
+  66%,
   100% {
     opacity: 1;
   }
@@ -468,13 +441,13 @@
 
 @keyframes click-pulse {
   0%,
-  14%,
+  8%,
   100% {
     box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
     transform: scale(1);
   }
 
-  6% {
+  3% {
     box-shadow: 0 0 0 10px rgba(37, 99, 235, 0.12);
     transform: scale(1.03);
   }
@@ -488,20 +461,20 @@
 
 @keyframes bridge-glow {
   0%,
-  12%,
+  8%,
   100% {
     opacity: 0;
     transform: translateX(-12%);
   }
 
-  22%,
-  46% {
+  12%,
+  34% {
     opacity: 1;
     transform: translateX(12%);
   }
 
-  56%,
-  80% {
+  54%,
+  78% {
     opacity: 1;
     transform: translateX(-12%);
   }
@@ -509,19 +482,12 @@
 
 @keyframes request-bubble {
   0%,
-  10%,
-  100% {
-    opacity: 0;
-    transform: translateX(0) scale(0.92);
-  }
-
-  18%,
-  42% {
+  22% {
     opacity: 1;
     transform: translateX(calc(100% - 9rem)) scale(1);
   }
 
-  50%,
+  30%,
   100% {
     opacity: 0;
     transform: translateX(calc(100% - 9rem)) scale(0.95);
@@ -530,18 +496,18 @@
 
 @keyframes response-bubble {
   0%,
-  48% {
+  56% {
     opacity: 0;
     transform: translateX(calc(100% - 8.5rem)) scale(0.92);
   }
 
-  56%,
-  80% {
+  62%,
+  88% {
     opacity: 1;
     transform: translateX(0) scale(1);
   }
 
-  88%,
+  92%,
   100% {
     opacity: 0;
     transform: translateX(0) scale(0.95);
@@ -550,15 +516,15 @@
 
 @keyframes server-step-receive {
   0%,
-  14%,
+  6%,
   100% {
     background: #ffffff;
     opacity: 0.45;
     transform: translateY(4px);
   }
 
-  20%,
-  34% {
+  10%,
+  24% {
     background: #effcf8;
     opacity: 1;
     transform: translateY(0);
@@ -567,15 +533,15 @@
 
 @keyframes server-step-prepare {
   0%,
-  32%,
+  18%,
   100% {
     background: #ffffff;
     opacity: 0.45;
     transform: translateY(4px);
   }
 
-  40%,
-  58% {
+  24%,
+  46% {
     background: #effcf8;
     opacity: 1;
     transform: translateY(0);
@@ -584,15 +550,15 @@
 
 @keyframes server-step-send {
   0%,
-  56%,
+  42%,
   100% {
     background: #ffffff;
     opacity: 0.45;
     transform: translateY(4px);
   }
 
-  64%,
-  82% {
+  50%,
+  72% {
     background: #effcf8;
     opacity: 1;
     transform: translateY(0);
@@ -601,14 +567,14 @@
 
 @keyframes server-light {
   0%,
-  18%,
+  8%,
   100% {
     opacity: 0.08;
     transform: scale(0.7);
   }
 
-  24%,
-  76% {
+  10%,
+  74% {
     opacity: 0.75;
     transform: scale(1);
   }
@@ -620,7 +586,7 @@
   }
 
   .md-typeset .conversation-scene__bridge {
-    min-height: 120px;
+    min-height: 74px;
     order: 2;
   }
 
@@ -631,7 +597,7 @@
 
 @media (max-width: 900px) {
   .md-typeset .conversation-scene {
-    padding: 1rem;
+    padding: 0.9rem;
   }
 
   .md-typeset .conversation-scene__product-preview,
@@ -648,6 +614,6 @@
   }
 
   .md-typeset .conversation-scene__browser-screen {
-    min-height: 220px;
+    min-height: 150px;
   }
 }

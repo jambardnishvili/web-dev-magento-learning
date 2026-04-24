@@ -1,14 +1,6 @@
 # When You Open a Website, Who Is Talking?
 
-## One visual first
-
 <div class="conversation-scene">
-  <div class="conversation-scene__eyebrow">Lesson 1</div>
-  <div class="conversation-scene__title">A website starts as a conversation between two sides.</div>
-  <div class="conversation-scene__intro">
-    One side is your browser. The other side is a server somewhere else. The browser asks for a page. The server sends something back.
-  </div>
-
   <div class="conversation-scene__stage">
     <div class="conversation-scene__card conversation-scene__card--browser">
       <div class="conversation-scene__window-bar">
@@ -89,22 +81,6 @@
     </div>
   </div>
 
-  <div class="conversation-scene__caption">Watch the message move from the browser to the server, then back again.</div>
-
-  <div class="conversation-scene__notes">
-    <div class="conversation-scene__note">
-      <strong>Two sides</strong>
-      <span>A browser and a server are talking to each other.</span>
-    </div>
-    <div class="conversation-scene__note">
-      <strong>Ask first</strong>
-      <span>The browser starts the conversation. The page does not appear by itself.</span>
-    </div>
-    <div class="conversation-scene__note">
-      <strong>Answer second</strong>
-      <span>The server sends something back for the browser to show on screen.</span>
-    </div>
-  </div>
 </div>
 
 ## The short story
@@ -115,10 +91,20 @@ That is the first mental model to keep: a website starts as a back-and-forth bet
 
 ## What you should notice
 
-- The browser is on the user's computer or phone.
-- The server is the machine that answers.
-- The browser asks first.
-- The server answers second.
+<div class="conversation-scene__notes">
+  <div class="conversation-scene__note">
+    <strong>Two sides</strong>
+    <span>A browser and a server are talking to each other.</span>
+  </div>
+  <div class="conversation-scene__note">
+    <strong>Ask first</strong>
+    <span>The browser starts the conversation. The page does not appear by itself.</span>
+  </div>
+  <div class="conversation-scene__note">
+    <strong>Answer second</strong>
+    <span>The server sends something back for the browser to show on screen.</span>
+  </div>
+</div>
 
 ## Common confusion
 
