@@ -20,10 +20,37 @@
           <strong>Browser</strong>
           <span>This is where the person clicks a link or types an address.</span>
         </div>
-        <div class="conversation-scene__line"></div>
-        <div class="conversation-scene__line conversation-scene__line--mid"></div>
-        <div class="conversation-scene__line conversation-scene__line--short"></div>
-        <div class="conversation-scene__pill">Customer opens product page</div>
+        <div class="conversation-scene__browser-screen">
+          <div class="conversation-scene__browser-state conversation-scene__browser-state--idle">
+            <div class="conversation-scene__product-preview">
+              <div class="conversation-scene__thumb"></div>
+              <div class="conversation-scene__copy">
+                <strong>Product link</strong>
+                <span>Customer clicks to open the page.</span>
+              </div>
+            </div>
+            <div class="conversation-scene__click-target">Open product page</div>
+          </div>
+
+          <div class="conversation-scene__browser-state conversation-scene__browser-state--loading">
+            <div class="conversation-scene__loading-pill">Waiting for answer...</div>
+            <div class="conversation-scene__line"></div>
+            <div class="conversation-scene__line conversation-scene__line--mid"></div>
+            <div class="conversation-scene__line conversation-scene__line--short"></div>
+            <div class="conversation-scene__spinner"></div>
+          </div>
+
+          <div class="conversation-scene__browser-state conversation-scene__browser-state--rendered">
+            <div class="conversation-scene__render-card">
+              <div class="conversation-scene__thumb conversation-scene__thumb--full"></div>
+              <div class="conversation-scene__render-copy">
+                <strong>Product page appears</strong>
+                <span>Name, image, and actions are now visible on screen.</span>
+                <div class="conversation-scene__pill">Now the browser can show the page</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -43,13 +70,20 @@
           <strong>Server</strong>
           <span>This machine receives the ask and sends back a result.</span>
         </div>
-        <div class="conversation-scene__note">
-          <strong>It listens</strong>
-          <span>It waits for browsers to ask for pages, images, or data.</span>
-        </div>
-        <div class="conversation-scene__note">
-          <strong>It answers</strong>
-          <span>It sends back HTML, JSON, or files the browser can use.</span>
+        <div class="conversation-scene__server-flow">
+          <div class="conversation-scene__server-step conversation-scene__server-step--receive">
+            <strong>1. Receives the ask</strong>
+            <span>The server notices the incoming request.</span>
+          </div>
+          <div class="conversation-scene__server-step conversation-scene__server-step--prepare">
+            <strong>2. Prepares an answer</strong>
+            <span>It decides what should be sent back.</span>
+          </div>
+          <div class="conversation-scene__server-step conversation-scene__server-step--send">
+            <strong>3. Sends the result</strong>
+            <span>The answer goes back to the browser.</span>
+          </div>
+          <div class="conversation-scene__server-light"></div>
         </div>
       </div>
     </div>
