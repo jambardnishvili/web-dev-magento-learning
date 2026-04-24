@@ -3,26 +3,6 @@
 !!! note
     This page is a map, not a test. You do not need to fully understand every term on the first read. The goal is to see the big picture first, then learn the names of each part.
 
-## What it is
-
-This page explains the full path from typing a URL in a browser to seeing HTML, JSON, or assets rendered on screen.
-
-```mermaid
-flowchart TB
-    A["User enters URL or clicks link"]
-    B["Browser finds site address and checks saved data"]
-    C["Web server (nginx) receives request"]
-    D["Web server serves file or sends PHP work to PHP-FPM"]
-    E["Magento starts up and loads its setup"]
-    F["Magento decides which code should handle URL"]
-    G["Magento reads saved fast data or database data"]
-    H["Magento builds HTML or JSON response"]
-    I["Web server returns response"]
-    J["Browser parses assets and renders page"]
-
-    A --> B --> C --> D --> E --> F --> G --> H --> I --> J
-```
-
 ## Quick visual walkthrough
 
 <div class="request-explainer" aria-label="Animated explainer showing how a browser request moves through the browser, web server, PHP, Magento, data storage, and back to the browser.">
@@ -112,16 +92,114 @@ flowchart TB
     </div>
   </div>
 
-  <div class="request-explainer__steps">
-    <div class="step-1">1. Browser asks for page</div>
-    <div class="step-2">2. Web server receives request</div>
-    <div class="step-3">3. PHP starts Magento</div>
-    <div class="step-4">4. Magento loads needed data</div>
-    <div class="step-5">5. Response returns and page renders</div>
+  <div class="request-explainer__timeline">
+    <span class="step-1">1. Browser</span>
+    <span class="step-2">2. Web server</span>
+    <span class="step-3">3. PHP</span>
+    <span class="step-4">4. Data</span>
+    <span class="step-5">5. Response</span>
   </div>
 </div>
 
 This loop is meant to make the order feel familiar. It is not trying to teach every technical detail at once.
+
+## Read the animation
+
+### Scene 1: Browser asks for page
+
+What you see:
+- browser window with a product page loading
+
+What it means:
+- the customer asks for a URL
+- nothing from Magento has happened yet
+- this is still just a browser trying to get a page
+
+What can fail here:
+- wrong URL
+- browser cache confusion
+- domain or DNS issues before the app is even reached
+
+### Scene 2: Web server receives request
+
+What you see:
+- first active card becomes `Web server`
+
+What it means:
+- the request reaches nginx first
+- nginx may serve static files directly
+- if PHP is needed, nginx forwards the work onward
+
+What can fail here:
+- bad server config
+- missing static assets
+- request never reaching PHP
+
+### Scene 3: PHP starts Magento
+
+What you see:
+- active card changes to `PHP`
+
+What it means:
+- PHP-FPM runs PHP code
+- Magento starts up and loads what it needs to handle the request
+- this is where framework bootstrapping begins
+
+What can fail here:
+- PHP worker errors
+- fatal exceptions during startup
+- environment/config problems before business logic runs
+
+### Scene 4: Magento loads data
+
+What you see:
+- active card changes to `Magento app`, then `Data layer`
+
+What it means:
+- Magento decides which code should handle the URL
+- it may load cache, session, product, customer, or other stored data
+- this is where request handling becomes actual application behavior
+
+What can fail here:
+- wrong route
+- broken business logic
+- stale cache
+- bad database reads
+
+### Scene 5: Response returns and page renders
+
+What you see:
+- active card changes to `Response`
+- browser page changes from loading state to rendered state
+
+What it means:
+- Magento sends HTML back
+- browser receives it, applies CSS and JavaScript, and shows the final page
+
+What can fail here:
+- broken HTML
+- frontend JavaScript issues
+- page data correct but rendering wrong in browser
+
+## What it is
+
+This page explains the full path from typing a URL in a browser to seeing HTML, JSON, or assets rendered on screen.
+
+```mermaid
+flowchart TB
+    A["User enters URL or clicks link"]
+    B["Browser finds site address and checks saved data"]
+    C["Web server (nginx) receives request"]
+    D["Web server serves file or sends PHP work to PHP-FPM"]
+    E["Magento starts up and loads its setup"]
+    F["Magento decides which code should handle URL"]
+    G["Magento reads saved fast data or database data"]
+    H["Magento builds HTML or JSON response"]
+    I["Web server returns response"]
+    J["Browser parses assets and renders page"]
+
+    A --> B --> C --> D --> E --> F --> G --> H --> I --> J
+```
 
 ## Terms used in this page
 

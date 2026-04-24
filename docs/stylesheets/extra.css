@@ -326,37 +326,41 @@
   color: #991b1b;
 }
 
-.md-typeset .request-explainer__steps {
+.md-typeset .request-explainer__timeline {
   border-top: 1px solid #d9e2ec;
-  display: grid;
+  display: flex;
   gap: 0.6rem;
-  grid-template-columns: repeat(5, 1fr);
+  flex-wrap: wrap;
   margin-top: 1rem;
   padding-top: 1rem;
 }
 
-.md-typeset .request-explainer__steps div {
+.md-typeset .request-explainer__timeline span {
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 999px;
   color: #486581;
-  font-size: 0.84rem;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.7rem;
 }
 
-.md-typeset .request-explainer__steps .step-1 {
+.md-typeset .request-explainer__timeline .step-1 {
   animation: step-1 10s infinite;
 }
 
-.md-typeset .request-explainer__steps .step-2 {
+.md-typeset .request-explainer__timeline .step-2 {
   animation: step-2 10s infinite;
 }
 
-.md-typeset .request-explainer__steps .step-3 {
+.md-typeset .request-explainer__timeline .step-3 {
   animation: step-3 10s infinite;
 }
 
-.md-typeset .request-explainer__steps .step-4 {
+.md-typeset .request-explainer__timeline .step-4 {
   animation: step-4 10s infinite;
 }
 
-.md-typeset .request-explainer__steps .step-5 {
+.md-typeset .request-explainer__timeline .step-5 {
   animation: step-5 10s infinite;
 }
 
@@ -418,10 +422,6 @@
 
   .md-typeset .request-explainer__active-card {
     min-height: 220px;
-  }
-
-  .md-typeset .request-explainer__steps {
-    grid-template-columns: 1fr;
   }
 }
 
