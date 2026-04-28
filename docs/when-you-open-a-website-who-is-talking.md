@@ -83,6 +83,18 @@
 
 </div>
 
+## Watch the visual first
+
+Follow the movement before reading the explanation.
+
+1. The person clicks a product link in the browser.
+2. The browser sends the first message: "Can I have this page?"
+3. The server receives that message and prepares an answer.
+4. The server sends the answer back: "Here is the page."
+5. The browser changes from waiting to showing the product page.
+
+What changed on screen: the page did not appear until the browser asked and the server answered.
+
 ## The short story
 
 Someone opens a product page. Their browser sends a message asking for that page. The server receives the message, prepares an answer, and sends it back. The browser then shows that answer as a website.
@@ -113,3 +125,20 @@ People often say "the browser opened the page" as if the whole page already live
 ## Later, we will add more detail
 
 This lesson leaves out many things on purpose. We are not naming web servers, PHP, Magento, databases, or caches yet. Those are real parts of the story, but they belong after this first picture feels natural.
+
+## Check yourself
+
+- If the browser is still waiting, has the answer come back yet?
+- If the server never receives the ask, can Magento build the page?
+- If a page fails, which two sides should you think about first?
+
+You should now understand that opening a website starts as a conversation between a browser and a server.
+
+## Use this in real work
+
+Use this mental model when you first join a server or when a page fails and you need to ask, "Which part of the trip broke?"
+
+[Field guide: first 30 minutes on a new server](field-guide/first-30-minutes-new-magento-server.md){ .lesson-link }
+[Field guide: product page shows 500](field-guide/product-page-shows-500.md){ .lesson-link }
+
+[Next: Request and response](what-is-a-request-and-what-is-a-response.md){ .next-lesson }

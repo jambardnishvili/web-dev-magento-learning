@@ -32,4 +32,49 @@ extra_css:
   - stylesheets/extra.css
 nav:
   - Home: index.md
-  - Lesson 1: when-you-open-a-website-who-is-talking.md
+  - Lessons:
+      - Browser and Server: when-you-open-a-website-who-is-talking.md
+      - Request and Response: what-is-a-request-and-what-is-a-response.md
+      - Static or Made: static-file-or-made-page.md
+      - Web Server: what-does-the-web-server-do.md
+      - PHP: where-does-php-fit.md
+      - Magento: where-does-magento-fit.md
+      - Magento URL Ownership: how-magento-chooses-code-for-url.md
+      - Layout to HTML: how-magento-turns-layout-into-html.md
+      - Page Data: where-does-page-data-live.md
+      - Product Attributes: what-are-product-attributes.md
+      - Cache: why-does-cache-exist.md
+      - PHP-FPM: what-is-php-fpm.md
+      - nginx: what-is-nginx.md
+      - MySQL: what-is-mysql.md
+      - Redis: what-is-redis.md
+  - Runtime Deep Dives:
+      - How PHP Runs One Request: deep-dives/how-php-runs-one-request.md
+      - How PHP-FPM Workers Handle Magento: deep-dives/how-php-fpm-workers-handle-magento.md
+  - Field Guide:
+      - Start Here: field-guide/index.md
+      - On the Job:
+          - First 30 Minutes on a New Server: field-guide/first-30-minutes-new-magento-server.md
+          - Onboard a New Magento Server: field-guide/onboard-new-magento-server.md
+          - Find the Magento Root: field-guide/find-magento-root.md
+          - Map Running Services: field-guide/map-running-services.md
+          - Find the Site Config: field-guide/find-site-config.md
+      - Trace Magento Code:
+          - Find Which Magento Code Handles a URL: field-guide/find-which-magento-code-handles-url.md
+          - Find Which Template Renders a Page Part: field-guide/find-which-template-renders-page-part.md
+      - Trace Magento Data:
+          - Trace a Storefront Value to Its Source: field-guide/trace-storefront-value-to-source.md
+      - Runtime Diagnostics:
+          - Find PHP Version and Errors: field-guide/find-php-version-and-errors.md
+          - Check PHP-FPM Pool and Slow Log: field-guide/check-php-fpm-pool-and-slow-log.md
+      - Troubleshooting:
+          - Product Page Shows 500: field-guide/product-page-shows-500.md
+          - 502 Bad Gateway: field-guide/502-bad-gateway.md
+      - Command Cheatsheets:
+          - Clear Magento Cache: field-guide/clear-magento-cache.md
+          - Find Magento Logs: field-guide/find-magento-logs.md
+          - Find nginx Logs: field-guide/find-nginx-logs.md
+          - Check PHP-FPM: field-guide/check-php-fpm.md
+          - Search Files on a Server: field-guide/search-files-on-server.md
+          - Check MySQL: field-guide/check-mysql.md
+          - Check Redis: field-guide/check-redis.md
